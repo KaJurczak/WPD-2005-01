@@ -36,7 +36,12 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      opacity: 0;
     }
+  }
+
+  &:hover .buttons {
+    opacity: 1;
   }
 
   .content {
@@ -92,4 +97,9 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  &:hover .price > * {
+    background-color: $bg-orange;
+  }
 }
+
