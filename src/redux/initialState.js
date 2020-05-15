@@ -21,7 +21,7 @@ const initialState = {
     {
       id: 'aenean-ru-bristique-2',
       name: 'Aenean Ru Bristique 2',
-      image: 'https:files.tinypic.pl/i/01005/lnrrb919kzjz.jpeg',
+      image: 'https://files.tinypic.pl/i/01005/lnrrb919kzjz.jpeg',
       title: 'cool bed',
       category: 'bed',
       price: 30,
