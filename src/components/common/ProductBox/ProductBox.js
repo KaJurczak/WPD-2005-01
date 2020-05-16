@@ -22,6 +22,7 @@ const ProductBox = ({
   stars,
   isFavorite,
   setFavorite,
+  setProduct,
 }) => (
   <div className={styles.root}>
     <div className={styles.photo}>
@@ -61,7 +62,9 @@ const ProductBox = ({
         >
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
-        <Button variant='outline'>
+        <Button 
+          variant='outline'
+          onClick={() => setProduct(id)}>
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
       </div>
@@ -92,6 +95,7 @@ ProductBox.propTypes = {
   title: PropTypes.string,
   isFavorite: PropTypes.bool,
   setFavorite: PropTypes.func,
+  setProduct: PropTypes.func,
 };
 
 export default ProductBox;
