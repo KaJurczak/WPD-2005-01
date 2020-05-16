@@ -11,9 +11,11 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 // action types
 export const ADD_TO_COMPARING = createActionName('ADD_TO_COMPARING');
+export const REMOVE_FROM_COMPARING = createActionName('REMOVE_FROM_COMPARING');
 
 // action creators
 export const setProduct = payload => ({ payload, type: ADD_TO_COMPARING });
+export const removeProduct = payload => ({ payload, type: REMOVE_FROM_COMPARING });
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
@@ -22,6 +24,12 @@ export default function reducer(statePart = [], action = {}) {
       return {
         ...statePart,
         products: [...statePart.products, action.payload],
+      };
+    }
+    case REMOVE_FROM_COMPARING: {
+      return {
+        ...statePart,
+        products: statePart.products.filter(product => product !== action.payload),
       };
     }
     default:

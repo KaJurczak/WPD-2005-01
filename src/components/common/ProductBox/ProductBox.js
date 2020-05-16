@@ -23,65 +23,77 @@ const ProductBox = ({
   isFavorite,
   setFavorite,
   setProduct,
-}) => (
-  <div className={styles.root}>
-    <div className={styles.photo}>
-      <img src={image} alt={title} />
-      {promo && <div className={styles.sale}>{promo}</div>}
-      <div className={styles.buttons}>
-        <Button variant='small'>Quick View</Button>
-        <Button variant='small'>
-          <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-        </Button>
-      </div>
-    </div>
-    <div className={styles.content}>
-      <h5>{name}</h5>
-      <div className={styles.stars}>
-        {[1, 2, 3, 4, 5].map(i => (
-          <a key={i} href='#'>
-            {i <= stars ? (
-              <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-            ) : (
-              <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-            )}
-          </a>
-        ))}
-      </div>
-    </div>
-    <div className={styles.line}></div>
-    <div className={styles.actions}>
-      <div className={styles.outlines}>
-        <Button
-          variant='outline'
-          className={isFavorite ? styles.active : ''}
-          onClick={e => {
-            e.preventDefault();
-            setFavorite(id);
-          }}
-        >
-          <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-        </Button>
-        <Button 
-          variant='outline'
-          onClick={() => setProduct(id)}>
-          <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-        </Button>
-      </div>
-      <div className={styles.price}>
-        {oldPrice !== undefined ? (
-          <Button noHover variant='small'>
-            <s>${oldPrice}</s> ${price}
+  removeProduct,
+  choosedProductsId,
+}) => {
+  const markingButton = event => {
+    if (!choosedProductsId.includes(id)) {
+      setProduct(id);
+    } else {
+      removeProduct(id);
+    }
+  };
+
+  return (
+    <div className={styles.root}>
+      <div className={styles.photo}>
+        <img src={image} alt={title} />
+        {promo && <div className={styles.sale}>{promo}</div>}
+        <div className={styles.buttons}>
+          <Button variant='small'>Quick View</Button>
+          <Button variant='small'>
+            <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
-        ) : (
-          <Button noHover variant='small'>
-            ${price}
+        </div>
+      </div>
+      <div className={styles.content}>
+        <h5>{name}</h5>
+        <div className={styles.stars}>
+          {[1, 2, 3, 4, 5].map(i => (
+            <a key={i} href='#'>
+              {i <= stars ? (
+                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
+              ) : (
+                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
+              )}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div className={styles.line}></div>
+      <div className={styles.actions}>
+        <div className={styles.outlines}>
+          <Button
+            variant='outline'
+            className={isFavorite ? styles.active : ''}
+            onClick={e => {
+              e.preventDefault();
+              setFavorite(id);
+            }}
+          >
+            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-        )}
+          <Button 
+            variant='outline'
+            onClick={event => markingButton(event)}>
+            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+          </Button>
+        </div>
+        <div className={styles.price}>
+          {oldPrice !== undefined ? (
+            <Button noHover variant='small'>
+              <s>${oldPrice}</s> ${price}
+            </Button>
+          ) : (
+            <Button noHover variant='small'>
+              ${price}
+            </Button>
+          )}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 ProductBox.propTypes = {
   children: PropTypes.node,
@@ -96,6 +108,8 @@ ProductBox.propTypes = {
   isFavorite: PropTypes.bool,
   setFavorite: PropTypes.func,
   setProduct: PropTypes.func,
+  removeProduct: PropTypes.func,
+  choosedProductsId: PropTypes.array,
 };
 
 export default ProductBox;
