@@ -30,6 +30,10 @@
       }
     }
 
+    .cardsStyle {
+      justify-content: flex-end;
+    }
+
     .paymentMethods {
       margin: 0;
       padding: 0;
@@ -49,6 +53,8 @@
     }
 
     .copyright {
+      text-align: center;
+
       p {
         margin: 0;
         color: rgb(169, 169, 169);
@@ -78,5 +84,34 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 900px) {
+  .cardsStyle {
+    margin-left: -50px;
+  }
+}
+
+@media (max-width: 768px), (min-width: 576px) {
+  .copyright {
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) {
+  .menuWrapper {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 420px) {
+  .menuSize {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .cardsStyle {
+    margin-left: 5%;
   }
 }
