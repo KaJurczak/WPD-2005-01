@@ -102,6 +102,7 @@ const ProductSearch = () => (
 );
 
 ProductSearch.propTypes = {
+  
   children: PropTypes.node,
 };
 

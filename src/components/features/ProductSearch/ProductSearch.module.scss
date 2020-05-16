@@ -12,11 +12,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-<<<<<<< HEAD
     width: 260px;
-=======
-    width: 230px;
->>>>>>> Change 'search category' view style
 
     .icon:first-child {
       color: $bg-orange;
@@ -44,20 +40,13 @@
     line-height:2em;
     text-align:center;
     z-index: 2;
-<<<<<<< HEAD
-=======
     margin-left: 30px;
->>>>>>> Change 'search category' view style
   }
 
   .menu a {
     display: block;
     text-decoration: none;
-<<<<<<< HEAD
     color: $text-black;
-=======
-    color: $text-color;
->>>>>>> Change 'search category' view style
     padding: 0 5px;
   }
 
@@ -75,20 +64,12 @@
   }
 
   .menu > li > ul > li > a {
-<<<<<<< HEAD
     background-color: $bg-orange;
-=======
-    background-color: $primary;
->>>>>>> Change 'search category' view style
     width: 200px;
   }
 
   .menu > li > ul > li > a {
-<<<<<<< HEAD
     color: $bronze;
-=======
-    color: $header-topbar-bg;
->>>>>>> Change 'search category' view style
     border-top:1px solid #FFF;
     border-left:1px solid #FFF;
   }
@@ -122,11 +103,7 @@
   }
 
   .menu > li > ul > li > ol > li > a:hover {
-<<<<<<< HEAD
     background-color: $bg-orange;
-=======
-    background-color: $primary;
->>>>>>> Change 'search category' view style
     color: #FFF;
   }
 
