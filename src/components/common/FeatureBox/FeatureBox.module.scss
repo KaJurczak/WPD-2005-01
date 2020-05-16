@@ -52,6 +52,7 @@
     letter-spacing: 1px;
     font-weight: 300;
 
+
     h5 {
       font-weight: 600;
       margin: 0;
@@ -60,12 +61,14 @@
   }
 
   &:hover {
+
     .iconWrapper {
       color: $text-white;
 
       &::after {
         background-color: $bg-orange;
         border-color: $bg-orange;
+
       }
     }
 

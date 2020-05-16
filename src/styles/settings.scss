@@ -52,3 +52,15 @@ $bg-light-silver: $lightSilver;
 $bg-bronze: $bronze;
 $bg-light-bronze: $lightBronze;
 $bg-black: $black;
+
+
+/*----------$transition-base----------*/
+// Adjust transition variables to modify global transition base */
+// Modify to suit by using specific property locally, under variable */
+
+$trans-baseProperty: all;
+$trans-baseDuration: 250ms;
+$trans-baseTiming: ease;
+$trans-baseDelay: 0ms;
+
+$transition-base: $trans-baseProperty $trans-baseDuration $trans-baseTiming $trans-baseDelay;
