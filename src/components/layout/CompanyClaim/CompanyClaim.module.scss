@@ -33,8 +33,9 @@
 
       .cartIcon {
         background-color: $bg-orange;
-        width: 55px;
+        width: 60px;
         height: 50px;
+        padding-right: 16px;
         border-radius: 3px;
         display: flex;
         align-items: center;
@@ -47,8 +48,9 @@
       }
 
       .cartCounter {
-        width: 28px;
-        height: 27px;
+        min-width: 28px;
+        max-width: 52px;
+        padding: 0 12px;
         border-radius: 14px;
         background-color: $bg-bronze;
         display: flex;
@@ -70,3 +72,4 @@
     }
   }
 }
+
