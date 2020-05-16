@@ -22,64 +22,79 @@ const ProductBox = ({
   compare,
   favorite,
   setProduct,
+  removeProduct,
   id,
-}) => (
-  <div className={styles.root}>
-    <div className={styles.photo}>
-      <img src={image} alt={title} />
-      {promo && <div className={styles.sale}>{promo}</div>}
-      <div className={styles.buttons}>
-        <Button variant='small'>Quick View</Button>
-        <Button variant='small'>
-          <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-        </Button>
-      </div>
-    </div>
-    <div className={styles.content}>
-      <h5>{name}</h5>
-      <div className={styles.stars}>
-        {[1, 2, 3, 4, 5].map(i => (
-          <a key={i} href='#'>
-            {i <= stars ? (
-              <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-            ) : (
-              <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-            )}
-          </a>
-        ))}
-      </div>
-    </div>
-    <div className={styles.line}></div>
-    <div className={styles.actions}>
-      <div className={styles.outlines}>
-        <div className={favorite === 'yes' ? styles.favorite : ''}>
-          <Button variant='outline'>
-            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-          </Button>
-        </div>
-        <div
-          className={compare === 'yes' ? styles.compare : ''}
-          onClick={() => setProduct(id)}
-        >
-          <Button variant='outline'>
-            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+}) => {
+  const markingButton = event => {
+    if (event.type === 'click') {
+      // console.log('event', event);
+      setProduct(id);
+    }
+    // else {
+    //   console.log('why not');
+    //   console.log('event', event);
+    //   removeProduct(id);
+    // }
+  };
+
+  return (
+    <div className={styles.root}>
+      <div className={styles.photo}>
+        <img src={image} alt={title} />
+        {promo && <div className={styles.sale}>{promo}</div>}
+        <div className={styles.buttons}>
+          <Button variant='small'>Quick View</Button>
+          <Button variant='small'>
+            <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
         </div>
       </div>
-      <div className={styles.price}>
-        {oldPrice !== undefined ? (
-          <Button noHover variant='small'>
-            <s>${oldPrice}</s> ${price}
-          </Button>
-        ) : (
-          <Button noHover variant='small'>
-            ${price}
-          </Button>
-        )}
+      <div className={styles.content}>
+        <h5>{name}</h5>
+        <div className={styles.stars}>
+          {[1, 2, 3, 4, 5].map(i => (
+            <a key={i} href='#'>
+              {i <= stars ? (
+                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
+              ) : (
+                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
+              )}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div className={styles.line}></div>
+      <div className={styles.actions}>
+        <div className={styles.outlines}>
+          <div className={favorite === 'yes' ? styles.favorite : ''}>
+            <Button variant='outline'>
+              <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+            </Button>
+          </div>
+          <div
+            className={compare === 'yes' ? styles.compare : ''}
+            onClick={event => markingButton(event)}
+          >
+            <Button variant='outline'>
+              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+            </Button>
+          </div>
+        </div>
+        <div className={styles.price}>
+          {oldPrice !== undefined ? (
+            <Button noHover variant='small'>
+              <s>${oldPrice}</s> ${price}
+            </Button>
+          ) : (
+            <Button noHover variant='small'>
+              ${price}
+            </Button>
+          )}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 ProductBox.propTypes = {
   children: PropTypes.node,
@@ -93,6 +108,7 @@ ProductBox.propTypes = {
   compare: PropTypes.string,
   favorite: PropTypes.string,
   setProduct: PropTypes.func,
+  removeProduct: PropTypes.func,
   id: PropTypes.string,
 };
 
