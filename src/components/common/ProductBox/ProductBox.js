@@ -69,10 +69,10 @@ const ProductBox = ({
             onClick={e => {
               e.preventDefault();
               setFavorite(id);
-            }}
-          >
+            }}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
+          </div>
           <Button 
             variant='outline'
             onClick={event => markingButton(event)}>
