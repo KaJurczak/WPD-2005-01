@@ -22,6 +22,7 @@ const ProductBox = ({
   isFavorite,
   setFavorite,
 }) => (
+
   <div className={styles.root}>
     <div className={styles.photo}>
       <img src={image} alt={title} />
@@ -65,9 +66,15 @@ const ProductBox = ({
         </Button>
       </div>
       <div className={styles.price}>
-        <Button noHover variant='small'>
-          $ {price}
-        </Button>
+        {oldPrice !== undefined ? (
+          <Button noHover variant='small'>
+            <s>${oldPrice}</s> ${price}
+          </Button>
+        ) : (
+          <Button noHover variant='small'>
+            ${price}
+          </Button>
+        )}
       </div>
     </div>
   </div>
@@ -78,6 +85,7 @@ ProductBox.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
+  oldPrice: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
   image: PropTypes.string,

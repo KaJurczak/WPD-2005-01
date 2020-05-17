@@ -1,14 +1,14 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: #ffffff;
-  border: 1px solid #e1e1e1;
+  background-color: $bg-white;
+  border: 1px solid $border-light-silver;
   margin-bottom: 2rem;
 
   .photo {
     position: relative;
     background: {
-      color: #f4f5f7;
+      color: $bg-white-blue;
       size: contain;
       position: center;
       repeat: no-repeat;
@@ -27,16 +27,21 @@
       top: -30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #292929;
+      background-color: $bg-light-black;
       border-radius: 50%;
-      color: #ffffff;
+      color: $text-white;
       padding: 30px 15px 5px 15px;
     }
 
     .buttons {
       display: flex;
       justify-content: space-between;
+      opacity: 0;
     }
+  }
+
+  &:hover .buttons {
+    opacity: 1;
   }
 
   .content {
@@ -44,7 +49,7 @@
     padding: 20px;
 
     h5 {
-      color: $primary;
+      color: $text-orange;
       font-size: 16px;
       line-height: 24px;
       letter-spacing: 1px;
@@ -53,14 +58,26 @@
     .stars {
       a {
         text-decoration: none;
-        color: rgb(42, 42, 42);
+        color: $text-black;
       }
     }
   }
 
+  .favorite {
+    background-color: $bg-orange;
+  }
+
+  .compare {
+    background-color: $bg-orange;
+  }
+
+  .outlines{
+    display: inline-flex;
+  }
+
   .line {
     margin: 0 10px;
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid $text-black;
     position: relative;
 
     &::before {
@@ -69,7 +86,7 @@
       bottom: -1px;
       left: 50%;
       width: 30px;
-      border-bottom: 4px solid $primary;
+      border-bottom: 4px solid $border-orange;
       transform: translateX(-50%);
     }
   }
@@ -80,7 +97,13 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  &:hover .price > * {
+    background-color: $bg-orange;
+  }
 }
+
 .active {
   background-color: $primary;
 }
+
