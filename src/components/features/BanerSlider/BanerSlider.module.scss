@@ -1,0 +1,34 @@
+@import "../../../styles/settings.scss";
+
+.photo {
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .wrapper {
+    position: absolute;
+    left: 0;
+    top:50%;
+    transform: translateY(-50%);
+    width: 100%;
+    background: $bg-black;
+    padding: 50px 30px;
+    color: $text-white;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .button {
+    position: absolute;
+  }
+}
