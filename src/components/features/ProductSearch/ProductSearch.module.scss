@@ -15,7 +15,7 @@
     width: 260px;
 
     .icon:first-child {
-      color: $primary;
+      color: $bg-orange;
       position: absolute;
       left: 10px;
       z-index: 0;
@@ -45,7 +45,7 @@
   .menu a {
     display: block;
     text-decoration: none;
-    color: $text-color;
+    color: $text-black;
     padding: 0 5px;
   }
 
@@ -63,7 +63,7 @@
   }
 
   .menu > li > ul > li > a {
-    background-color: $primary;
+    background-color: $bg-orange;
     width: 200px;
   }
 
@@ -102,7 +102,7 @@
   }
 
   .menu > li > ul > li > ol > li > a:hover {
-    background-color: $primary;
+    background-color: $bg-orange;
     color: #FFF;
   }
 
