@@ -5,6 +5,8 @@ export const getCount = ({ products }) => products.length;
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
 
+export const getComparedProduct = ({ comparedProducts }) => comparedProducts.products;
+
 // action name creator
 const reducerName = 'comparedProducts';
 const createActionName = name => `app/${reducerName}/${name}`;
