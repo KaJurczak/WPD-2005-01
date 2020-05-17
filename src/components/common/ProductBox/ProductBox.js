@@ -11,7 +11,18 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 
-const ProductBox = ({ image, title, name, price, promo, stars }) => (
+const ProductBox = ({
+  id,
+  image,
+  title,
+  name,
+  price,
+  oldPrice,
+  promo,
+  stars,
+  isFavorite,
+  setFavorite,
+}) => (
   <div className={styles.root}>
     <div className={styles.photo}>
       <img src={image} alt={title} />
@@ -40,7 +51,14 @@ const ProductBox = ({ image, title, name, price, promo, stars }) => (
     <div className={styles.line}></div>
     <div className={styles.actions}>
       <div className={styles.outlines}>
-        <Button variant='outline'>
+        <Button
+          variant='outline'
+          className={isFavorite ? styles.active : ''}
+          onClick={e => {
+            e.preventDefault();
+            setFavorite(id);
+          }}
+        >
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
         <Button variant='outline'>
@@ -48,9 +66,15 @@ const ProductBox = ({ image, title, name, price, promo, stars }) => (
         </Button>
       </div>
       <div className={styles.price}>
-        <Button noHover variant='small'>
-          $ {price}
-        </Button>
+        {oldPrice !== undefined ? (
+          <Button noHover variant='small'>
+            <s>${oldPrice}</s> ${price}
+          </Button>
+        ) : (
+          <Button noHover variant='small'>
+            ${price}
+          </Button>
+        )}
       </div>
     </div>
   </div>
@@ -58,12 +82,16 @@ const ProductBox = ({ image, title, name, price, promo, stars }) => (
 
 ProductBox.propTypes = {
   children: PropTypes.node,
+  id: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
+  oldPrice: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
   image: PropTypes.string,
   title: PropTypes.string,
+  isFavorite: PropTypes.bool,
+  setFavorite: PropTypes.func,
 };
 
 export default ProductBox;

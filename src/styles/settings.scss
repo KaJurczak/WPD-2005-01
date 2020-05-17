@@ -1,13 +1,66 @@
 $base-padding: 24px;
+/*
+Base colors - NOT USE IN COMPONENTS - DEFINE NEW VARIABLE
+--------------------------------------*/
 
-$header-topbar-bg: #434343;
-$header-bg: #363636;
+$white: #ffffff;
+$darkWhite: #e2e2e2;
+$whiteBlue:#f4f5f7;
+$darkWhiteBLue: #e0e3ed;
 
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
+$orange: #d58e32;
 
-$primary: #d58e32;
+$black: #2a2a2a;
+$lightBlack: #292929;
 
-$text-color: #2a2a2a;
+$lightSilver: #e1e1e1;
+$mediumSilver: #d8d8d8;
+$silver: #b6b6b6;
 
-$form-border-color: #292929;
+$bronze: #363636;
+$lightBronze: #434343;
+
+$grey: #a9a9a9;
+
+/* Define variables style colors - USE VARIABLE BASE COLORS
+example: "$element" + "color": "$color" ($text-white: $white) */
+
+
+// text //
+$text-white: $white;
+$text-black: $black;
+$text-orange: $orange;
+$text-medium-silver: $mediumSilver;
+$text-dark-white-blue: $darkWhiteBLue;
+$text-grey: $grey;
+
+// border //
+$border-black:$black;
+$border-silver: $silver;
+$border-light-silver: $lightSilver;
+$border-orange: $orange;
+$border-dark-white: $darkWhite;
+$border-white: $white;
+$border-light-black: $lightBlack;
+
+// background //
+$bg-white: $white;
+$bg-white-blue: $whiteBlue;
+$bg-orange: $orange;
+$bg-light-black: $lightBlack;
+$bg-light-silver: $lightSilver;
+$bg-bronze: $bronze;
+$bg-light-bronze: $lightBronze;
+$bg-black: $black;
+
+
+/*----------$transition-base----------*/
+// Adjust transition variables to modify global transition base */
+// Modify to suit by using specific property locally, under variable */
+
+$trans-baseProperty: all;
+$trans-baseDuration: 250ms;
+$trans-baseTiming: ease;
+$trans-baseDelay: 0ms;
+
+$transition-base: $trans-baseProperty $trans-baseDuration $trans-baseTiming $trans-baseDelay;

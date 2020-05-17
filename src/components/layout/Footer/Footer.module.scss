@@ -2,12 +2,12 @@
 
 .root {
   .footerMenu {
-    background-color: $footer-bg;
+    background-color: $bg-bronze;
     padding: 3rem 0;
 
     .menuWrapper {
       h6 {
-        color: #ffffff;
+        color: $text-white;
         text-transform: uppercase;
         margin: 0 0 1rem 0;
       }
@@ -20,14 +20,18 @@
           a {
             font-size: 14px;
             line-height: 30px;
-            color: rgb(169, 169, 169);
+            color: $text-grey;
 
             &:hover {
-              color: #ffffff;
+              color: $text-white;
             }
           }
         }
       }
+    }
+
+    .cardsStyle {
+      justify-content: flex-end;
     }
 
     .paymentMethods {
@@ -42,16 +46,18 @@
   }
 
   .bottomBar {
-    background-color: $footer-claim-bg;
+    background-color: $bg-black;
 
     :global(.container) > :global(.row) {
       height: 95px;
     }
 
     .copyright {
+      text-align: center;
+
       p {
         margin: 0;
-        color: rgb(169, 169, 169);
+        color: $text-grey;
         font-size: 14px;
         line-height: 26px;
       }
@@ -68,15 +74,44 @@
           margin-left: 1rem;
 
           a {
-            color: rgb(169, 169, 169);
+            color: $text-grey;
             text-decoration: none;
 
             &:hover {
-              color: $primary;
+              color: $text-orange;
             }
           }
         }
       }
     }
+  }
+}
+
+@media (max-width: 900px) {
+  .cardsStyle {
+    margin-left: -50px;
+  }
+}
+
+@media (max-width: 768px), (min-width: 576px) {
+  .copyright {
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) {
+  .menuWrapper {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 420px) {
+  .menuSize {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .cardsStyle {
+    margin-left: 5%;
   }
 }

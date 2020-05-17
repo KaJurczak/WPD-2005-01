@@ -1,7 +1,7 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: $header-topbar-bg;
+  background-color: $bg-light-bronze;
 
   ul {
     list-style: none;
@@ -13,7 +13,7 @@
       line-height: 55px;
 
       a {
-        color: #ffffff;
+        color: $text-white;
         font-size: 13px;
 
         p {
@@ -22,7 +22,7 @@
           padding: 0;
         }
         &:hover {
-          color: $primary;
+          color: $text-orange;
           text-decoration: none;
         }
       }
