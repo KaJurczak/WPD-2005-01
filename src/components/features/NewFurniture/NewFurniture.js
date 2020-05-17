@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBoxContainer';
+import Button from '../../common/Button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
 
 class NewFurniture extends React.Component {
   state = {
@@ -19,13 +22,11 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const { categories, products, choosedProductsId } = this.props;
+    const { categories, products, choosedProductsId, removeProduct } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
-
-    // console.log('categories', categories, 'products', products, 'choosedProductsId', choosedProductsId, 'choosedProductsId.indexOf()', choosedProductsId.indexOf());
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -46,9 +47,24 @@ class NewFurniture extends React.Component {
         choosedProductsId.includes(product.id) &&
         choosedProductsId.indexOf(product.id) <= 3
       ) {
+        const markingButton = event => {
+          removeProduct(product.id);
+        };
+
         return (
-          <div key={product.id} className='col-3'>
-            <ProductBox {...product} />
+          <div key={product.id} className={'col-3 row ' + styles.stickyBarWrapper}>
+            <div
+              className={styles.photo + ' col-11'}
+              onClick={event => markingButton(event)}
+            >
+              <span className={styles.close}>x</span>
+              <img src={product.image} alt={product.title} />
+            </div>
+            <div className={styles.compare + ' col-1'}>
+              <Button variant='outline' className={styles.stickyBarOutline}>
+                <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+              </Button>
+            </div>
           </div>
         );
       }
@@ -88,7 +104,7 @@ class NewFurniture extends React.Component {
               </div>
             ))}
           </div>
-          <div className='stickyBar'>
+          <div className={styles.stickyBar}>
             <div className='row'>{addToStickyBar}</div>
           </div>
         </div>
@@ -117,6 +133,7 @@ NewFurniture.propTypes = {
     })
   ),
   choosedProductsId: PropTypes.array,
+  removeProduct: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {

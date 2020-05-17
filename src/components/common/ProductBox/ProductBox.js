@@ -72,7 +72,6 @@ const ProductBox = ({
             }}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          </div>
           <Button 
             variant='outline'
             onClick={event => markingButton(event)}>
