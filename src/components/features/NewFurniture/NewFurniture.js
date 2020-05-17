@@ -19,11 +19,13 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const { categories, products } = this.props;
+    const { categories, products, choosedProductsId } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
+
+    // console.log('categories', categories, 'products', products, 'choosedProductsId', choosedProductsId, 'choosedProductsId.indexOf()', choosedProductsId.indexOf());
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -38,6 +40,19 @@ class NewFurniture extends React.Component {
         </li>
       );
     }
+
+    const addToStickyBar = products.map(product => {
+      if (
+        choosedProductsId.includes(product.id) &&
+        choosedProductsId.indexOf(product.id) <= 3
+      ) {
+        return (
+          <div key={product.id} className='col-3'>
+            <ProductBox {...product} />
+          </div>
+        );
+      }
+    });
 
     return (
       <div className={styles.root}>
@@ -73,6 +88,9 @@ class NewFurniture extends React.Component {
               </div>
             ))}
           </div>
+          <div className='stickyBar'>
+            <div className='row'>{addToStickyBar}</div>
+          </div>
         </div>
       </div>
     );
@@ -98,6 +116,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  choosedProductsId: PropTypes.array,
 };
 
 NewFurniture.defaultProps = {
