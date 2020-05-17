@@ -71,7 +71,7 @@ const ProductBox = ({
           <div
             className={compare === 'yes' ? styles.compare : ''}
             onClick={event => markingButton(event)}
-            id='choose'
+            // id='choose'
           >
             <Button variant='outline'>
               <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
