@@ -38,7 +38,7 @@
   }
 
   .category:hover {
-    background-color: $primary;
+    background-color: $bg-orange;
 
     select,
     .icon:last-child,
@@ -67,6 +67,15 @@
       border: 0;
       background-color: transparent;
       outline: none;
+    }
+  }
+}
+@media (max-width: 520px) {
+  .root {
+    input,
+    .category,
+    select {
+      width: 100px;
     }
   }
 }
