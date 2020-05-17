@@ -15,7 +15,7 @@ const Homepage = () => (
         <div className='col-12 col-lg-4'>
           <FeaturedProducts />
         </div>
-        <div className='col-12 col-lg-8'>
+        <div className='col-12 col-lg-8 pl-lg-0'>
           <BanerSlider />
         </div>
       </div>
