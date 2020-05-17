@@ -24,17 +24,14 @@ const ProductBox = ({
   setProduct,
   removeProduct,
   id,
+  choosedProductsId,
 }) => {
   const markingButton = event => {
-    if (event.type === 'click') {
-      // console.log('event', event);
+    if (!choosedProductsId.includes(id)) {
       setProduct(id);
+    } else {
+      removeProduct(id);
     }
-    // else {
-    //   console.log('why not');
-    //   console.log('event', event);
-    //   removeProduct(id);
-    // }
   };
 
   return (
@@ -74,6 +71,7 @@ const ProductBox = ({
           <div
             className={compare === 'yes' ? styles.compare : ''}
             onClick={event => markingButton(event)}
+            id='choose'
           >
             <Button variant='outline'>
               <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
@@ -110,6 +108,7 @@ ProductBox.propTypes = {
   setProduct: PropTypes.func,
   removeProduct: PropTypes.func,
   id: PropTypes.string,
+  choosedProductsId: PropTypes.array,
 };
 
 export default ProductBox;
