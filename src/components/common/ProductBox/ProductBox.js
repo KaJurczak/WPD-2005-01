@@ -17,12 +17,12 @@ const ProductBox = ({
   title,
   name,
   price,
+  oldPrice,
   promo,
   stars,
   isFavorite,
   setFavorite,
 }) => (
-
   <div className={styles.root}>
     <div className={styles.photo}>
       <img src={image} alt={title} />
