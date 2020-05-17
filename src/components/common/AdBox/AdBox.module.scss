@@ -1,0 +1,59 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  background-color: $bg-white;
+  border: 1px solid $border-light-silver;
+  margin-bottom: 2rem;
+  height: auto;
+
+  .photo {
+    position: relative;
+    background: {
+      color: $bg-white-blue;
+      size: contain;
+      position: center;
+      repeat: no-repeat;
+    }
+    overflow: hidden;
+    align-items: flex-end;
+
+    img {
+      height: 450px;
+      width: 100%;
+      transform: scale(1.8);
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    text-align: left;
+    padding: 20px;
+    position: absolute;
+    z-index: 10;
+    top:10%;
+    left:5%;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px $bg-black;
+    background: rgba(255, 255, 255, 0.8);
+
+    h2 {
+      color: $text-medium-silver;
+      font-size: 22px;
+      line-height: 24px;
+      letter-spacing: 1px;
+      background: $bg-black;
+      padding: 10px;
+      display: inline-block;
+    }
+
+    h3 {
+      color: $text-orange;
+      font-size: 36px;
+      line-height: 24px;
+      letter-spacing: 1px;
+      padding-top: 10px;
+      padding-bottom: 20px;
+      text-shadow: 1px 1px $bg-black;
+    }
+  }
+}
