@@ -28,6 +28,7 @@ const ProductBox = ({
   setProduct,
   removeProduct,
   choosedProductsId,
+  variant,
 }) => {
   const classes = [styles.root];
   if (variant) classes.push(styles[variant]);
@@ -148,6 +149,7 @@ ProductBox.propTypes = {
   setProduct: PropTypes.func,
   removeProduct: PropTypes.func,
   choosedProductsId: PropTypes.array,
+  variant: PropTypes.string,
 };
 
 export default ProductBox;
