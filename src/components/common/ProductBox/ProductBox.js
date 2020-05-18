@@ -26,10 +26,11 @@ const ProductBox = ({
   setProduct,
   removeProduct,
   choosedProductsId,
+  variant,
 }) => {
   const classes = [styles.root];
   if (variant) classes.push(styles[variant]);
-  
+
   const markingButton = event => {
     if (!choosedProductsId.includes(id)) {
       setProduct(id);
@@ -102,12 +103,11 @@ const ProductBox = ({
             onClick={e => {
               e.preventDefault();
               setFavorite(id);
-            }}>
+            }}
+          >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button 
-            variant='outline'
-            onClick={event => markingButton(event)}>
+          <Button variant='outline' onClick={event => markingButton(event)}>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
@@ -142,6 +142,7 @@ ProductBox.propTypes = {
   setProduct: PropTypes.func,
   removeProduct: PropTypes.func,
   choosedProductsId: PropTypes.array,
+  variant: PropTypes.string,
 };
 
 export default ProductBox;
