@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
 
@@ -15,27 +16,27 @@ const MenuBar = ({ children }) => (
         <div className={'col-auto ' + styles.menu}>
           <ul>
             <li>
-              <a href='#' className={styles.active}>
+              <Link to='/' className={styles.active}>
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#'>Furniture</a>
+              <Link to='products'>Furniture</Link>
             </li>
             <li>
-              <a href='#'>Chair</a>
+              <Link to='products'>Chair</Link>
             </li>
             <li>
-              <a href='#'>Table</a>
+              <Link to='products'>Table</Link>
             </li>
             <li>
-              <a href='#'>Sofa</a>
+              <Link to='products'>Sofa</Link>
             </li>
             <li>
-              <a href='#'>Bedroom</a>
+              <Link to='products'>Bedroom</Link>
             </li>
             <li>
-              <a href='#'>Blog</a>
+              <Link to='products'>Blog</Link>
             </li>
           </ul>
         </div>
