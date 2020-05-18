@@ -28,6 +28,10 @@
     }
   }
   
+  .category:hover {
+    background-color: $bg-orange;
+  }
+  
   .menu, .menu ul, .menu ol {
     list-style-type:none;
     padding:0;
@@ -41,7 +45,7 @@
     text-align:center;
     z-index: 2;
   }
-
+  
   .menu a {
     display: block;
     text-decoration: none;
