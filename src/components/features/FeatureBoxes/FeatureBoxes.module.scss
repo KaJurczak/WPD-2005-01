@@ -3,3 +3,22 @@
 .root {
   padding: 5rem 0;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: space-between;
+}
+
+.col {
+  width: 24%;
+}
+
+@media (max-width: 768px) {
+
+  .col {
+    width: 49%;
+  }
+
+}

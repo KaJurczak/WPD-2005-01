@@ -13,6 +13,7 @@ import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons'
 import Button from '../Button/Button';
 
 const ProductBox = ({
+  id,
   image,
   title,
   name,
@@ -20,8 +21,8 @@ const ProductBox = ({
   oldPrice,
   promo,
   stars,
-  compare,
-  favorite,
+  isFavorite,
+  setFavorite,
   variant,
 }) => {
   const classes = [styles.root];
@@ -72,25 +73,28 @@ const ProductBox = ({
             </a>
           ))}
         </div>
-      </div>
-      <div className={styles.line}></div>
-      <div className={styles.actions}>
-        <div className={styles.outlines}>
-          {variant === 'featured' ? (
-            <div>
-              <Button variant='outline'>
-                <FontAwesomeIcon icon={faEye}>View</FontAwesomeIcon>
-              </Button>
-            </div>
-          ) : (
-            ''
-          )}
-          <div className={favorite === 'yes' ? styles.favorite : ''}>
-            <Button variant='outline'>
+        <div className={styles.line}></div>
+        <div className={styles.actions}>
+          <div className={styles.outlines}>
+            {variant === 'featured' ? (
+              <div>
+                <Button variant='outline'>
+                  <FontAwesomeIcon icon={faEye}>View</FontAwesomeIcon>
+                </Button>
+              </div>
+            ) : (
+              ''
+            )}
+            <Button
+              variant='outline'
+              className={isFavorite ? styles.active : ''}
+              onClick={e => {
+                e.preventDefault();
+                setFavorite(id);
+              }}
+            >
               <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
             </Button>
-          </div>
-          <div className={compare === 'yes' ? styles.compare : ''}>
             <Button variant='outline'>
               <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
             </Button>
@@ -114,6 +118,7 @@ const ProductBox = ({
 
 ProductBox.propTypes = {
   children: PropTypes.node,
+  id: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
   oldPrice: PropTypes.number,
@@ -121,8 +126,8 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   image: PropTypes.string,
   title: PropTypes.string,
-  compare: PropTypes.string,
-  favorite: PropTypes.string,
+  isFavorite: PropTypes.bool,
+  setFavorite: PropTypes.func,
   variant: PropTypes.string,
 };
 
