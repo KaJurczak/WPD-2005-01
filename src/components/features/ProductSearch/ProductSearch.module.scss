@@ -10,10 +10,12 @@
     border-right: 1px solid $border-light-black;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
+    width: 260px;
 
     .icon:first-child {
-      color: $text-orange;
+      color: $bg-orange;
       position: absolute;
       left: 10px;
       z-index: 0;
@@ -24,27 +26,84 @@
       right: 10px;
       z-index: 0;
     }
-
-    select {
-      -webkit-appearance: none;
-      border: 0;
-      background-color: transparent;
-      padding: 5px 30px 5px 35px;
-      position: relative;
-      z-index: 1;
-      font-size: 14px;
-      outline-style: none;
-    }
+  }
+  
+  .menu, .menu ul, .menu ol {
+    list-style-type:none;
+    padding:0;
+    margin: 0;
   }
 
-  .category:hover {
-    background-color: $bg-orange;
+  .menu {
+    background-color:#FFF;
+    height:2em;
+    line-height:2em;
+    text-align:center;
+    z-index: 2;
+  }
 
-    select,
-    .icon:last-child,
-    .icon:first-child {
-      color: white;
-    }
+  .menu a {
+    display: block;
+    text-decoration: none;
+    color: $text-black;
+    padding: 0 5px;
+  }
+
+  .menu > li:hover > ul {
+    display:block;
+  }
+
+  .menu > li > ul {
+    display:none;
+  }
+
+  .menu > li > ul > li {
+    position: relative;
+    background-color: #EEE;
+  }
+
+  .menu > li > ul > li > a {
+    background-color: $bg-orange;
+    width: 200px;
+  }
+
+  .menu > li > ul > li > a {
+    color: $bronze;
+    border-top:1px solid #FFF;
+    border-left:1px solid #FFF;
+  }
+
+  .menu > li > ul > li:hover > a {
+    color: #FFF;
+    border-top:1px solid #FFF;
+    border-left:1px solid #FFF;
+  }
+
+  .menu > li > ul > li > ol {
+    display:none;
+    width:150%;
+    position:absolute;
+    left:100%;
+    margin-top:-2em;
+  }
+
+  .menu > li > ul > li:hover > ol {
+    display:block;
+    z-index: 1;
+  }
+
+  .menu > li > ul > li > ol > li {
+    background-color:#CCC;
+  }
+  
+  .menu > li > ul > li > ol > li > a {
+    border-top:1px solid #FFF;
+    border-left:1px solid #FFF;
+  }
+
+  .menu > li > ul > li > ol > li > a:hover {
+    background-color: $bg-orange;
+    color: #FFF;
   }
 
   .searchField {
