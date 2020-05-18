@@ -73,3 +73,30 @@
   }
 }
 
+
+@media (max-width: 320px) {
+  .root {
+    .phoneNumber p {
+      font-size: 14px;
+    }
+
+    .wrapper {
+      display: flex;
+    }
+
+    .logo {
+      order: 0;
+      width: 50%;
+    }
+    .phoneNumber {
+      order: 2;
+      text-align: right !important;
+    }
+
+    .cart {
+      order: 1;
+      margin-top: -1.5rem;
+    }
+  }
+}
+

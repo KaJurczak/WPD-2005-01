@@ -333,6 +333,10 @@ const initialState = {
     products: [],
   },
   favorites: ['aenean-ru-bristique-2', 'aenean-ru-bristique-24'],
+
+  comparedProducts: {
+    products: [],
+  },
 };
 
 export default initialState;
