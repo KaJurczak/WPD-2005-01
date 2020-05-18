@@ -70,3 +70,12 @@
     }
   }
 }
+@media (max-width: 520px) {
+  .root {
+    input,
+    .category,
+    select {
+      width: 100px;
+    }
+  }
+}
