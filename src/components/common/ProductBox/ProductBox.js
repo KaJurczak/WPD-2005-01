@@ -7,6 +7,7 @@ import {
   faStar,
   faExchangeAlt,
   faShoppingBasket,
+  faEye,
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
@@ -26,6 +27,9 @@ const ProductBox = ({
   removeProduct,
   choosedProductsId,
 }) => {
+  const classes = [styles.root];
+  if (variant) classes.push(styles[variant]);
+  
   const markingButton = event => {
     if (!choosedProductsId.includes(id)) {
       setProduct(id);
@@ -35,16 +39,36 @@ const ProductBox = ({
   };
 
   return (
-    <div className={styles.root}>
+    <div className={classes.join(' ')}>
       <div className={styles.photo}>
         <img src={image} alt={title} />
-        {promo && <div className={styles.sale}>{promo}</div>}
+        {promo && variant !== 'featured' && <div className={styles.sale}>{promo}</div>}
         <div className={styles.buttons}>
-          <Button variant='small'>Quick View</Button>
+          {variant !== 'featured' && <Button variant='small'>Quick View</Button>}
           <Button variant='small'>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
         </div>
+        {variant === 'featured' && (
+          <div className={styles.timeCounter}>
+            <div className={styles.counter}>
+              <span className={styles.count}>25</span>
+              <span className={styles.title}>days</span>
+            </div>
+            <div className={styles.counter}>
+              <span className={styles.count}>13</span>
+              <span className={styles.title}>hrs</span>
+            </div>
+            <div className={styles.counter}>
+              <span className={styles.count}>45</span>
+              <span className={styles.title}>mins</span>
+            </div>
+            <div className={styles.counter}>
+              <span className={styles.count}>28</span>
+              <span className={styles.title}>secs</span>
+            </div>
+          </div>
+        )}
       </div>
       <div className={styles.content}>
         <h5>{name}</h5>
@@ -63,6 +87,15 @@ const ProductBox = ({
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
+          {variant === 'featured' ? (
+            <div>
+              <Button variant='outline'>
+                <FontAwesomeIcon icon={faEye}>View</FontAwesomeIcon>
+              </Button>
+            </div>
+          ) : (
+            ''
+          )}
           <Button
             variant='outline'
             className={isFavorite ? styles.active : ''}
