@@ -73,32 +73,32 @@ const ProductBox = ({
             </a>
           ))}
         </div>
-        <div className={styles.line}></div>
-        <div className={styles.actions}>
-          <div className={styles.outlines}>
-            {variant === 'featured' ? (
-              <div>
-                <Button variant='outline'>
-                  <FontAwesomeIcon icon={faEye}>View</FontAwesomeIcon>
-                </Button>
-              </div>
-            ) : (
-              ''
-            )}
-            <Button
-              variant='outline'
-              className={isFavorite ? styles.active : ''}
-              onClick={e => {
-                e.preventDefault();
-                setFavorite(id);
-              }}
-            >
-              <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-            </Button>
-            <Button variant='outline'>
-              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-            </Button>
-          </div>
+      </div>
+      <div className={styles.line}></div>
+      <div className={styles.actions}>
+        <div className={styles.outlines}>
+          {variant === 'featured' ? (
+            <div>
+              <Button variant='outline'>
+                <FontAwesomeIcon icon={faEye}>View</FontAwesomeIcon>
+              </Button>
+            </div>
+          ) : (
+            ''
+          )}
+          <Button
+            variant='outline'
+            className={isFavorite ? styles.active : ''}
+            onClick={e => {
+              e.preventDefault();
+              setFavorite(id);
+            }}
+          >
+            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+          </Button>
+          <Button variant='outline'>
+            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+          </Button>
         </div>
         <div className={styles.price}>
           {oldPrice !== undefined ? (
