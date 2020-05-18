@@ -8,7 +8,6 @@ import {
   removeProduct,
 } from '../../../redux/comparedProductsRedux';
 
-
 const mapStateToProps = (state, props) => ({
   isFavorite: getFavoriteById(state, props.id),
   options: getAll(state),
