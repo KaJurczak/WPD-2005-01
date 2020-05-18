@@ -28,7 +28,6 @@ const ProductBox = ({
   setProduct,
   removeProduct,
   choosedProductsId,
-  variant,
 }) => {
   const classes = [styles.root];
   if (variant) classes.push(styles[variant]);
