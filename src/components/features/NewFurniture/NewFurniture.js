@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBoxContainer';
+import Button from '../../common/Button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
 
 class NewFurniture extends React.Component {
   state = {
@@ -19,7 +22,7 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const { categories, products } = this.props;
+    const { categories, products, choosedProductsId, removeProduct } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
@@ -38,6 +41,34 @@ class NewFurniture extends React.Component {
         </li>
       );
     }
+
+    const addToStickyBar = products.map(product => {
+      if (
+        choosedProductsId.includes(product.id) &&
+        choosedProductsId.indexOf(product.id) <= 3
+      ) {
+        const markingButton = event => {
+          removeProduct(product.id);
+        };
+
+        return (
+          <div key={product.id} className={'col-3 row ' + styles.stickyBarWrapper}>
+            <div
+              className={styles.photo + ' col-11'}
+              onClick={event => markingButton(event)}
+            >
+              <span className={styles.close}>x</span>
+              <img src={product.image} alt={product.title} />
+            </div>
+            <div className={styles.compare + ' col-1'}>
+              <Button variant='outline' className={styles.stickyBarOutline}>
+                <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+              </Button>
+            </div>
+          </div>
+        );
+      }
+    });
 
     return (
       <div className={styles.root}>
@@ -73,6 +104,9 @@ class NewFurniture extends React.Component {
               </div>
             ))}
           </div>
+          <div className={styles.stickyBar}>
+            <div className='row'>{addToStickyBar}</div>
+          </div>
         </div>
       </div>
     );
@@ -98,6 +132,8 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  choosedProductsId: PropTypes.array,
+  removeProduct: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
