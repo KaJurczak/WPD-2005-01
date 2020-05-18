@@ -16,6 +16,11 @@
         color: $text-white;
         font-size: 13px;
 
+        p {
+          display: inline;
+          margin: 0;
+          padding: 0;
+        }
         &:hover {
           color: $text-orange;
           text-decoration: none;
@@ -37,6 +42,20 @@
 
     .icon {
       margin-right: 5px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .root {
+    .topMenu ul li {
+      margin-left: 0.7rem;
+
+      a {
+        p {
+          display: none;
+        }
+      }
     }
   }
 }

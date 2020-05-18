@@ -13,6 +13,7 @@ import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons'
 import Button from '../Button/Button';
 
 const ProductBox = ({
+  id,
   image,
   title,
   name,
@@ -20,12 +21,22 @@ const ProductBox = ({
   oldPrice,
   promo,
   stars,
-  compare,
-  favorite,
-  variant,
+  isFavorite,
+  setFavorite,
+  setProduct,
+  removeProduct,
+  choosedProductsId,
 }) => {
   const classes = [styles.root];
   if (variant) classes.push(styles[variant]);
+  
+  const markingButton = event => {
+    if (!choosedProductsId.includes(id)) {
+      setProduct(id);
+    } else {
+      removeProduct(id);
+    }
+  };
 
   return (
     <div className={classes.join(' ')}>
@@ -85,16 +96,20 @@ const ProductBox = ({
           ) : (
             ''
           )}
-          <div className={favorite === 'yes' ? styles.favorite : ''}>
-            <Button variant='outline'>
-              <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-            </Button>
-          </div>
-          <div className={compare === 'yes' ? styles.compare : ''}>
-            <Button variant='outline'>
-              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-            </Button>
-          </div>
+          <Button
+            variant='outline'
+            className={isFavorite ? styles.active : ''}
+            onClick={e => {
+              e.preventDefault();
+              setFavorite(id);
+            }}>
+            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+          </Button>
+          <Button 
+            variant='outline'
+            onClick={event => markingButton(event)}>
+            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+          </Button>
         </div>
         <div className={styles.price}>
           {oldPrice !== undefined ? (
@@ -114,6 +129,7 @@ const ProductBox = ({
 
 ProductBox.propTypes = {
   children: PropTypes.node,
+  id: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
   oldPrice: PropTypes.number,
@@ -121,9 +137,11 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   image: PropTypes.string,
   title: PropTypes.string,
-  compare: PropTypes.string,
-  favorite: PropTypes.string,
-  variant: PropTypes.string,
+  isFavorite: PropTypes.bool,
+  setFavorite: PropTypes.func,
+  setProduct: PropTypes.func,
+  removeProduct: PropTypes.func,
+  choosedProductsId: PropTypes.array,
 };
 
 export default ProductBox;
