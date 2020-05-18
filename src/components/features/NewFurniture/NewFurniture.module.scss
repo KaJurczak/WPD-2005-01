@@ -98,6 +98,62 @@
       }
     }
   }
+
+  .stickyBar {
+    background-color: $bg-light-silver;
+    position: fixed;
+    max-width: 1140px;
+    padding: 15px;
+    bottom: 0;
+    z-index: 5;
+
+    .stickyBarWrapper {
+      margin-right: 5px;
+
+      .photo {
+        position: relative;
+        overflow: hidden;
+        align-items: flex-end;
+
+        .close {
+          cursor: pointer;
+          position: absolute;
+          top: 0;
+          right: 10%;
+          transform: translate(0, 50%);
+          font-size: 1.5rem;
+          font-weight: 700;
+          line-height: 1;
+          color: $text-black;
+          opacity: 0;
+          z-index: 9999;
+          background-color: $bg-light-silver;
+        }
+        
+        &:hover .close {
+          opacity: 1;
+        }
+
+        img {
+          height: 200px;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .compare {
+        height: fit-content;
+        padding-left: 0;
+        padding-right: 0;
+        top: 80%;
+
+        .stickyBarOutline {
+          background-color: $bg-black;
+          color: $text-white;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 481px) {

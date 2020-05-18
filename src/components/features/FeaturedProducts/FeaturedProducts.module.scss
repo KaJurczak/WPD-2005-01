@@ -1,0 +1,46 @@
+@import "../../../styles/settings.scss";
+
+
+.panelBar {
+  background: $bg-black;
+  padding: 15px;
+  justify-content: space-between;
+  
+  .heading {
+    font-size: 16px;
+    color: $text-white;
+    text-transform: uppercase;
+    margin: 0;
+  }
+}
+.dots {
+  display: flex;
+  line-height: 0;
+
+  ul {
+    margin: auto 0;
+    padding: 0 0 0 1rem;
+    list-style: none;
+    transform: translateY(-3px);
+
+    li {
+      display: inline-block;
+      margin-left: 0.5rem;
+
+      a {
+        display: block;
+        width: 13px;
+        height: 13px;
+        border-radius: 6px;
+        background-color: $bg-light-silver;
+        font-size: 0;
+
+        &.active,
+        &:hover {
+          background-color: $bg-orange;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
