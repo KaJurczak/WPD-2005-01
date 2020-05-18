@@ -1,6 +1,7 @@
 @import "../../../styles/settings.scss";
 
 .root {
+
   .panelBar {
     margin-bottom: 30px;
     position: relative;
@@ -27,7 +28,7 @@
         bottom: -4px;
         left: 0;
         width: 45px;
-        border-bottom: 4px solid $border-orange;
+        border-bottom: 4px solid $border-orange;;
       }
     }
 
@@ -153,6 +154,22 @@
         }
       }
     }
+  }
+  
+  @keyframes appear {
+    from {
+      opacity: 0;
+      filter:saturate(0);
+    }
+    to {
+      opacity: 100;
+      filter:saturate(1);
+    }
+  }
+
+  .col {
+    animation: appear;
+    animation-duration: 1s;
   }
 }
 
