@@ -46,7 +46,7 @@ const Feedback = () => {
                 imperdiet.
               </p>
             </div>
-            <div className={'row ' + styles.person}>
+            <div className={styles.person}>
               <img
                 className={styles.personsPhoto}
                 src='./images/Feedback_photo.jpg'
@@ -54,8 +54,10 @@ const Feedback = () => {
                 title='photo'
               ></img>
               <div className={styles.PersonsText}>
-                <p className={styles.personsName}> John Smith </p>
-                <p className={styles.personsDescribe}> Future client </p>
+                <p className={styles.personsName}>
+                  <b>John Smith </b>
+                </p>
+                <p className={styles.personsDescribe}> Furniture client </p>
               </div>
             </div>
           </div>

@@ -5,12 +5,11 @@
     margin-bottom: 30px;
     position: relative;
 
-    :global(.row) > * {
-      border-bottom: 4px solid $border-dark-white;
-    }
-
     .heading {
       position: relative;
+      border-bottom: 4px solid $border-dark-white;
+      flex: 1;
+
 
       h3 {
         color: $text-orange;
@@ -68,20 +67,29 @@
       text-align: center;
 
       .font {
-
+        padding: 20px;
         a {
           color: $text-black;
           font-size: 25px;
-          line-height: 100px;
         }
       }
 
       .person {
-        text-align: center;
+        align-items: center;
+        display: inline-flex;
 
         img {
-          // height: 45px;
+          height: 50px;
           border-radius: 5px;
+        }
+
+        .PersonsText {
+          text-align: left;
+          padding: 15px;
+
+          p {
+            margin-bottom: 0;
+          }
         }
       }
     }
