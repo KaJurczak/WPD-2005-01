@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 const ProductBox = ({
   id,
@@ -72,7 +73,11 @@ const ProductBox = ({
         )}
       </div>
       <div className={styles.content}>
-        <h5>{name}</h5>
+        <h5>
+          <Link to='shop' className={styles.link}>
+            {name}
+          </Link>
+        </h5>
         <div className={styles.stars}>
           {[1, 2, 3, 4, 5].map(i => (
             <a key={i} href='#'>
@@ -143,6 +148,7 @@ ProductBox.propTypes = {
   setProduct: PropTypes.func,
   removeProduct: PropTypes.func,
   choosedProductsId: PropTypes.array,
+  variant: PropTypes.string,
 };
 
 export default ProductBox;
