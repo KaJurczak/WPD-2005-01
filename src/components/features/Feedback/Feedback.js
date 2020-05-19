@@ -3,10 +3,16 @@ import React from 'react';
 import styles from './Feedback.module.scss';
 
 const Feedback = () => {
-  const dots = [];
-  dots.push(
-    <li>
-      <a className={styles.active}>page</a>
+  const dotsActive = [];
+  dotsActive.push(
+    <li key='dotsKey1'>
+      <a className={styles.active}>dots</a>
+    </li>
+  );
+  const dotsNotActive = [];
+  dotsNotActive.push(
+    <li key='dotsKey1'>
+      <a className={styles.notActive}>dots</a>
     </li>
   );
 
@@ -19,9 +25,39 @@ const Feedback = () => {
               <h3>CLIENT FEEDBACK</h3>
             </div>
             <div className={'col-auto ' + styles.dots}>
-              <ul>{dots}</ul>
+              <ul>
+                {dotsActive}
+                {dotsNotActive}
+                {dotsNotActive}
+              </ul>
             </div>
-            Feedback
+          </div>
+          <div className={styles.content}>
+            <div className={styles.font}>
+              <a href='#'>
+                <i className={`fas fa-quote-right`}></i>
+              </a>
+            </div>
+            <div className={styles.description}>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut est
+                commodo, tempor quam ut, maximus ex. Donec quis consequat nisi. Vivamus
+                eget iaculis justo, id vulputate augue. Fusce faucibus pulvinar nibh at
+                imperdiet.
+              </p>
+            </div>
+            <div className={'row ' + styles.person}>
+              <img
+                className={styles.personsPhoto}
+                src='./images/Feedback_photo.jpg'
+                alt='personalPhoto'
+                title='photo'
+              ></img>
+              <div className={styles.PersonsText}>
+                <p className={styles.personsName}> John Smith </p>
+                <p className={styles.personsDescribe}> Future client </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
