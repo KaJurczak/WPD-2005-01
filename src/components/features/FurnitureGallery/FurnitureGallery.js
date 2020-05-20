@@ -1,5 +1,5 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import styles from './FurnitureGallery.module.scss';
 
@@ -9,7 +9,7 @@ import AdBox from '../../common/AdBox/AdBox';
 class FurnitureGallery extends React.Component {
   state = {
     activePage: 0,
-    activeCategory: 'chair',
+    activeCategory: 'table',
   };
 
   handlePageChange(newPage) {
@@ -21,7 +21,9 @@ class FurnitureGallery extends React.Component {
   }
 
   render() {
-    //const { products } = this.props;
+    const { products } = this.props;
+    const { activePage, activeCategory } = this.state;
+    const categoryProducts = products.filter(item => item.category === activeCategory);
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -41,7 +43,11 @@ class FurnitureGallery extends React.Component {
 
               <div className='row'>
                 <div className='col'>
-                  <GalleryBox />
+                  {categoryProducts.slice(activePage * 1, (activePage + 1) * 1).map(item => (
+                    <div key={item.id}>
+                      <GalleryBox {...item}/>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -63,6 +69,10 @@ class FurnitureGallery extends React.Component {
 FurnitureGallery.defaultProps = {
   categories: [],
   products: [],
+};
+
+FurnitureGallery.propTypes = {
+  products: PropTypes.array,
 };
 
 export default FurnitureGallery;

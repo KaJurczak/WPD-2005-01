@@ -31,10 +31,27 @@ const GalleryBox = ({
     </div>
 
     <div className={styles.photo}>
-      <img src={'https://i.postimg.cc/nrn8wNpn/margot-01-2-b.jpg'} alt={'chair-9'} />
+      <img src={image} alt={name} />
       {promo && <div className={styles.sale}>{promo}</div>}
 
       <div className={styles.content}>
+        <div className={styles.price}>
+          {oldPrice !== undefined ? (
+            <div>
+              <Button noHover variant='main' className={styles.center}>
+                <span>${price}</span>
+              </Button>
+              <Button noHover variant='small'>
+                <span><s>${oldPrice}</s></span>
+              </Button>
+            </div>
+          ) : (
+            <Button noHover variant='small'>
+              <span>${price}</span>
+            </Button>
+          )}
+        </div>
+
         <h5>{name}</h5>
         <div className={styles.stars}>
           {[1, 2, 3, 4, 5].map(i => (
@@ -52,35 +69,28 @@ const GalleryBox = ({
       <div className={styles.actions}>
         <div className={styles.outlines}>
           <div className={favorite === 'yes' ? styles.favorite : ''}>
-            <Button variant='outline'>
+            <Button variant='outline' className={styles.tooltip}>
               <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+              <span className={styles.tooltiptext}>Favorite</span>
             </Button>
           </div>
           <div className={compare === 'yes' ? styles.compare : ''}>
-            <Button variant='outline'>
+            <Button variant='outline' className={styles.tooltip}>
               <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+              <span className={styles.tooltiptext}>Compare</span>
             </Button>
           </div>
-          <Button variant='outline'>
+          <Button variant='outline' className={styles.tooltip}>
             <FontAwesomeIcon icon={faEye}>Quick view</FontAwesomeIcon>
+            <span className={styles.tooltiptext}>Quick view</span>
           </Button>
-          <Button variant='outline'>
+          <Button variant='outline' className={styles.tooltip}>
             <FontAwesomeIcon icon={faShoppingBasket}>Add to cart</FontAwesomeIcon>
+            <span className={styles.tooltiptext}>Add to cart</span>
           </Button>
-        </div>
-
-        <div className={styles.price}>
-          {oldPrice !== undefined ? (
-            <Button noHover variant='small'>
-              <s>${oldPrice}</s> ${price}
-            </Button>
-          ) : (
-            <Button noHover variant='small'>
-              ${price}
-            </Button>
-          )}
         </div>
       </div>
+
     </div>
   </div>
 );
