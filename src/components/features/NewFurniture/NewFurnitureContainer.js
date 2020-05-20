@@ -8,11 +8,13 @@ import {
   getComparedProduct,
   removeProduct,
 } from '../../../redux/comparedProductsRedux';
+import { getViewport } from '../../../redux/viewportRedux';
 
 const mapStateToProps = state => ({
   categories: getAll(state),
   products: getNew(state),
   choosedProductsId: getComparedProduct(state),
+  viewport: getViewport(state),
 });
 
 const mapDispatchToProps = dispatch => ({
