@@ -17,7 +17,6 @@ class FeaturedProducts extends React.Component {
     const { activePage } = this.state;
     const dots = [];
     for (let i = 0; i < products.length; i++) {
-      console.log('activePage:', activePage, ', i:', i);
       dots.push(
         <li key={i}>
           <a
