@@ -5,16 +5,18 @@ import styles from './Feedback.module.scss';
 const Feedback = () => {
   const dotsActive = [];
   dotsActive.push(
-    <li key='dotsKey1'>
+    <li key='dotsKeyActive'>
       <a className={styles.active}>dots</a>
     </li>
   );
   const dotsNotActive = [];
-  dotsNotActive.push(
-    <li key='dotsKey1'>
-      <a className={styles.notActive}>dots</a>
-    </li>
-  );
+  for (let i = 0; i <= 1; i++) {
+    dotsNotActive.push(
+      <li key={`dotsKey ${i}`}>
+        <a className={styles.notActive}>dots</a>
+      </li>
+    );
+  }
 
   return (
     <div className={styles.root}>
@@ -27,7 +29,6 @@ const Feedback = () => {
             <div className={'col-auto ' + styles.dots}>
               <ul>
                 {dotsActive}
-                {dotsNotActive}
                 {dotsNotActive}
               </ul>
             </div>

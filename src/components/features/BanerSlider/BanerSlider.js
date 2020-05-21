@@ -4,7 +4,7 @@ import styles from './BanerSlider.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../common/Button/Button';
-// import parser from 'html-react-parser';
+import parser from 'html-react-parser';
 
 // START DEMO DATA
 const demoData = [
@@ -53,7 +53,7 @@ class BanerSlider extends React.Component {
             <div className={styles.photo}>
               <img src={item.image} alt={item.title} />
               <div className={styles.wrapper}>
-                {/* <h2 className={styles.title}>{parser(item.title)}</h2> */}
+                <h2 className={styles.title}>{parser(item.title)}</h2>
                 <p className={styles.subtitle}>{item.subtitle}</p>
                 <div className={styles.button}>
                   <Button>shop now</Button>
