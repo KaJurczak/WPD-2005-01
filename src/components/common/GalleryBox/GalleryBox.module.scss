@@ -27,9 +27,6 @@
     }
   }
 
-
-
-
   .photo {
     position: relative;
     background: {
@@ -45,7 +42,7 @@
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .sale {
@@ -185,4 +182,27 @@
   .center {
     padding: 0px 10px;
   }
+
+  .slider {
+    border: 1px solid green;
+    height:50px;
+    background: yellow;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sliderImg {
+    width: 100%;
+    height: 98px;
+    object-fit: contain;
+  }
+
+  .sliderArrow {
+    height: 100px;
+    width: 40px;
+    background-color: black;
+    font-size: 10px;
+  }
+
+
 }

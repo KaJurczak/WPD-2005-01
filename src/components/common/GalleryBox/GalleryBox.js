@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart, faEye } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+//import GalleryBoxSlider from './GalleryBoxSlider';
 
 const GalleryBox = ({
   image,
@@ -88,10 +89,13 @@ const GalleryBox = ({
             <FontAwesomeIcon icon={faShoppingBasket}>Add to cart</FontAwesomeIcon>
             <span className={styles.tooltiptext}>Add to cart</span>
           </Button>
+
         </div>
+
       </div>
 
     </div>
+
   </div>
 );
 

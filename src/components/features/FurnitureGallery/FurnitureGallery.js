@@ -4,12 +4,17 @@ import PropTypes from 'prop-types';
 import styles from './FurnitureGallery.module.scss';
 
 import GalleryBox from '../../common/GalleryBox/GalleryBox';
+import GalleryBoxSliderImg from '../../common/GalleryBox/GalleryBoxSliderImg';
 import AdBox from '../../common/AdBox/AdBox';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import Button from '../../common/Button/Button';
 
 class FurnitureGallery extends React.Component {
   state = {
     activePage: 0,
-    activeCategory: 'table',
+    activeCategory: 'chair',
   };
 
   handlePageChange(newPage) {
@@ -48,6 +53,21 @@ class FurnitureGallery extends React.Component {
                       <GalleryBox {...item}/>
                     </div>
                   ))}
+
+                  <div className={styles.slider} >
+                    <Button className={styles.sliderArrow}>
+                      <FontAwesomeIcon icon={faAngleLeft} />
+                    </Button>
+                    {categoryProducts.slice(activePage * 1, (activePage + 1) * 5).map(item => (
+                      <div key={item.id}>
+                        <GalleryBoxSliderImg {...item}/>
+                      </div>
+                    ))}
+                    <Button className={styles.sliderArrow} >
+                      <FontAwesomeIcon icon={faAngleRight}/>
+                    </Button>
+                  </div>
+
                 </div>
               </div>
             </div>

@@ -1,6 +1,25 @@
 @import "../../../styles/settings.scss";
 
 .root {
+  .slider {
+    display: flex;
+  }
+
+  .sliderArrow {
+    height: 100px;
+    width: 60px;
+    background-color: $bg-black;
+    color: $text-white;
+    font-size: 35px;
+    padding: 25px 5px;
+    &:hover {
+      color: $text-orange;
+    }
+  }
+
+
+
+
   .panelBar {
     margin-bottom: 30px;
     position: relative;
