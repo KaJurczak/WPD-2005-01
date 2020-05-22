@@ -17,9 +17,6 @@
     }
   }
 
-
-
-
   .panelBar {
     margin-bottom: 30px;
     position: relative;
@@ -86,5 +83,17 @@
         }
       }
     }
+  }
+}
+
+
+.colNowrap {
+  flex-wrap: nowrap;
+}
+
+
+@media (max-width: 800px) {
+  .extendOnTablet {
+    flex-basis: auto;
   }
 }

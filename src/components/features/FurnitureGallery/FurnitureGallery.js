@@ -33,7 +33,7 @@ class FurnitureGallery extends React.Component {
       <div className={styles.root}>
         <div className='container'>
           <div className='row '>
-            <div className='col-6'>
+            <div className={'col ' + styles.extendOnTablet}>
               <div className='row no-gutters'>
                 <div className='col'>
                   <div className={styles.panelBar}>
@@ -47,7 +47,7 @@ class FurnitureGallery extends React.Component {
               </div>
 
               <div className='row'>
-                <div className='col'>
+                <div className={'col ' + styles.extendOnMobile}>
                   {categoryProducts.slice(activePage * 1, (activePage + 1) * 1).map(item => (
                     <div key={item.id}>
                       <GalleryBox {...item}/>
