@@ -7,6 +7,7 @@ import FeaturedProducts from '../../features/FeaturedProducts/FeaturedProductsCo
 import BanerSlider from '../../features/BanerSlider/BanerSlider';
 import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
+import Feedback from '../../features/Feedback/Feedback';
 
 const Homepage = () => (
   <div className={styles.root}>
@@ -22,6 +23,7 @@ const Homepage = () => (
     </div>
     <FeatureBoxes />
     <NewFurniture />
+    <Feedback />
   </div>
 );
 
