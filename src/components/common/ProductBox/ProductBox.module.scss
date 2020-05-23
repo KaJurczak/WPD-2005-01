@@ -1,5 +1,18 @@
 @import "../../../styles/settings.scss";
 
+
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    filter:saturate(0);
+  }
+  to {
+    opacity: 100;
+    filter:saturate(1);
+  }
+}
+
 .root {
   background-color: $bg-white;
   border: 1px solid $border-light-silver;
@@ -7,6 +20,8 @@
 
   .photo {
     position: relative;
+    animation: appear;
+    animation-duration: 1s;
     background: {
       color: $bg-white-blue;
       size: contain;

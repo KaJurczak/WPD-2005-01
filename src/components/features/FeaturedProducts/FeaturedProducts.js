@@ -16,39 +16,47 @@ class FeaturedProducts extends React.Component {
     //console.log(newPage);
   }
 
-
-  componentDidMount() {
+  autoplay(x) {
     const { products } = this.props;
-    const intervalDuration = 1000;
+    const intervalDuration = 3000;
+    const timeoutDuration = 10000;
     let counter = 0;
     let maxCount = products.length;
+    if (x === true) {
     //console.log(maxCount);
     //console.log(counter<maxCount);s
-    let autoplay = setTimeout (
-      () => {
-        setInterval(
-          () => {
-            if (counter < maxCount-1) {counter +=1;}
-            else {counter = 0;}
-            this.handlePageChange(counter);
-            console.log(counter<maxCount);
-            console.log(counter);
-            console.log(autoplay);
-          },
-          intervalDuration
-        );},5000
-    )
+      setTimeout (
+        () => {
+          setInterval(
+            () => {
+              if (counter < maxCount-1) {counter +=1;}
+              else {counter = 0;}
+              this.handlePageChange(counter);
+              console.log(counter);
+            },
+            intervalDuration
+          );},timeoutDuration
+      ); }
+    else if (x === false){
+      console.log('autoplay not starting');
+    }
+    console.log(setTimeout.value);
 
   }
 
-  componentDidUpdate(){
-    console.log('updated');
+  componentDidMount() {
+    this.autoplay(true)
+  }
+
+  stop () {
+    let x = 'aa';
+    console.log(x);
   }
 
 
 
   render() {
-
+    //this.autoplay()
     const { products } = this.props;
     //console.log(products.length);
     let { activePage } = this.state;
@@ -66,8 +74,7 @@ class FeaturedProducts extends React.Component {
         <li>
           <a
             onClick={() => {
-              console.log(this.autoplay);
-              clearTimeout(this.autoplay)
+              this.stop();
               this.handlePageChange(i);
             }}
             className={i === activePage && styles.active}
