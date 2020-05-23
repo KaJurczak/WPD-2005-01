@@ -32,7 +32,7 @@ const GalleryBox = ({
     </div>
 
     <div className={styles.photo}>
-      <img src={image} alt={name} />
+      <img src={image} alt={title} />
       {promo && <div className={styles.sale}>{promo}</div>}
 
       <div className={styles.content}>
