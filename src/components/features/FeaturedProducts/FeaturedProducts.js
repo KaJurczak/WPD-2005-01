@@ -13,46 +13,41 @@ class FeaturedProducts extends React.Component {
 
   handlePageChange(newPage) {
     this.setState({ activePage: newPage });
-    //console.log(newPage);
-  }
-
-  autoplay(x) {
-    const { products } = this.props;
-    const intervalDuration = 3000;
-    const timeoutDuration = 10000;
-    let counter = 0;
-    let maxCount = products.length;
-    if (x === true) {
-    //console.log(maxCount);
-    //console.log(counter<maxCount);s
-      setTimeout (
-        () => {
-          setInterval(
-            () => {
-              if (counter < maxCount-1) {counter +=1;}
-              else {counter = 0;}
-              this.handlePageChange(counter);
-              console.log(counter);
-            },
-            intervalDuration
-          );},timeoutDuration
-      ); }
-    else if (x === false){
-      console.log('autoplay not starting');
-    }
-    console.log(setTimeout.value);
-
   }
 
   componentDidMount() {
+    this.autoplay(false)
+  }
+
+  autoplay(restarted) {
+    const { products } = this.props;
+    const intervalDuration = 3000;
+    let maxCount = products.length;
+    let counter = -1;
+
+    if (restarted === true) {counter = -3; console.log('autoplay restarts');}
+    else {console.log('autoplay first run');}
+
+
+    this.autoplayEngine = setInterval(
+      () => {
+
+        if (counter < maxCount-1) {counter +=1;}
+        else {counter = 0;}
+
+        if (counter >= 0) {this.handlePageChange(counter);}
+        else {console.log('waiting...');}
+
+        console.log(counter);
+      },
+      intervalDuration
+    );
+  }
+
+  restart () {
+    clearInterval(this.autoplayEngine);
     this.autoplay(true)
   }
-
-  stop () {
-    let x = 'aa';
-    console.log(x);
-  }
-
 
 
   render() {
@@ -74,7 +69,7 @@ class FeaturedProducts extends React.Component {
         <li>
           <a
             onClick={() => {
-              this.stop();
+              this.restart();
               this.handlePageChange(i);
             }}
             className={i === activePage && styles.active}
