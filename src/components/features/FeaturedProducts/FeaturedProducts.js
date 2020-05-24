@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './FeaturedProducts.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBoxContainer';
-import { getFeatured } from '../../../redux/productsRedux';
 
 
 class FeaturedProducts extends React.Component {
