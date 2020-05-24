@@ -12,6 +12,16 @@ const Products = () => (
           &nbsp;ALWAYS <a> 25% </a> OFF OR MORE
         </h3>
       </div>
+      <div className={`row ${styles.columnWrapper}`}>
+        <div className={`col-12 col-sm-9 ${styles.columnFurniture}`}>
+          TEST COLUMN FURNITURE TEST COLUMN FURNITURE TEST COLUMN FURNITURE TEST COLUMN
+          FURNITURE TEST COLUMN FURNITURE TEST COLUMN FURNITURE TEST COLUMN FURNITURE
+        </div>
+        <div className={`col-12 col-sm-3 ${styles.columnFilter}`}>
+          TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER
+          TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN
+        </div>
+      </div>
     </div>
   </div>
 );

@@ -25,4 +25,22 @@
       }
     }
   }
+
+  .columnWrapper {
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .columnWrapper {
+    flex: column;
+
+    .columnFurniture {
+      order: 1;
+    }
+
+    .columnFilter {
+      order: 0;
+    }
+  }
 }
