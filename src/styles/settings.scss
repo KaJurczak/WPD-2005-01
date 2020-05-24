@@ -20,8 +20,10 @@ $silver: #b6b6b6;
 $bronze: #363636;
 $lightBronze: #434343;
 
+$lightGrey: #eaedf8;
 $grey: #a9a9a9;
 
+$pink: #fcf3f8;
 
 /* Define variables style colors - USE VARIABLE BASE COLORS
 example: "$element" + "color": "$color" ($text-white: $white) */
@@ -43,6 +45,7 @@ $border-orange: $orange;
 $border-dark-white: $darkWhite;
 $border-white: $white;
 $border-light-black: $lightBlack;
+$border-grey: $grey;
 
 // background //
 $bg-white: $white;
@@ -53,6 +56,8 @@ $bg-light-silver: $lightSilver;
 $bg-bronze: $bronze;
 $bg-light-bronze: $lightBronze;
 $bg-black: $black;
+$bg-light-grey: $lightGrey;
+$bg-pink: $pink;
 
 
 /*----------$transition-base----------*/
