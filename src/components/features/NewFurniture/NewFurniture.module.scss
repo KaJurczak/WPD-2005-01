@@ -101,39 +101,63 @@
   }
 
   .stickyBar {
-    background-color: $bg-light-silver;
+    background-color: rgba(255,255,255, 0.8);
     position: fixed;
-    max-width: 1140px;
-    padding: 15px;
-    bottom: 0;
+    width: 100%;
+    max-width: 1110px;
+    bottom: 10px;
     z-index: 5;
+    margin: -2px;
+    box-sizing: padding-box;
+    //border: 2px solid $bg-orange;
+    box-shadow: 0 4px 8px 0 $bg-black, 0 6px 20px 0 $bg-black, inset 0 0 0 2px $bg-orange;
+  //  box-shadow: inset 1px 1px $bg-orange;
 
     .stickyBarWrapper {
-      margin-right: 5px;
+      &:first-of-type {
+        margin-left: 13px;
+      }
+      margin-right: 8px;
+      padding: 15px 25px ;
 
       .photo {
         position: relative;
         overflow: hidden;
         align-items: flex-end;
+        padding: 0;
+        border: 1px solid $bg-black;
+
+        &:hover .close {
+          opacity: 1;
+
+        }
 
         .close {
           cursor: pointer;
           position: absolute;
-          top: 0;
-          right: 10%;
+          top: -5px;
+          right: 8px;
           transform: translate(0, 50%);
           font-size: 1.5rem;
           font-weight: 700;
           line-height: 1;
-          color: $text-black;
+          color: $text-white;
           opacity: 0;
           z-index: 9999;
-          background-color: $bg-light-silver;
+          background-color: $bg-black;
+          width:30px;
+          height:30px;
+          border-radius: 50%;
+          border: 1px solid $bg-white;
+          text-align: center;
+          line-height: 1.5rem;
+
+          &:hover {
+            box-shadow: 1px 1px 5px $bg-black;
+          }
         }
-        
-        &:hover .close {
-          opacity: 1;
-        }
+
+
 
         img {
           height: 200px;
@@ -147,15 +171,20 @@
         padding-left: 0;
         padding-right: 0;
         top: 80%;
+        position: absolute;
 
         .stickyBarOutline {
           background-color: $bg-black;
           color: $text-white;
+          position: absolute;
+          right: -20px;
+          bottom: -22px;
+          border: 1px solid $text-white;
         }
       }
     }
   }
-  
+
   @keyframes appear {
     from {
       opacity: 0;
@@ -188,5 +217,29 @@
 @media (min-width: 1280px) {
   .col {
     width: 25%;
+  }
+}
+
+@media (max-width:1199px) {
+  .root .stickyBar {
+    width: 930px;
+  }
+}
+
+@media (max-width:989px) {
+  .root .stickyBar {
+    width: 690px;
+  }
+}
+
+@media (max-width:768px) {
+  .root .stickyBar {
+    width: 510px;
+  }
+}
+
+@media (max-width:577px) {
+  .root .stickyBar {
+    display:none;
   }
 }
