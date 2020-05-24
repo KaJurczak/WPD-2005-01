@@ -60,11 +60,12 @@ class NewFurniture extends React.Component {
 
         return (
           <div key={product.id} className={'col-3 row ' + styles.stickyBarWrapper}>
-            <div
-              className={styles.photo + ' col-11'}
-              onClick={event => markingButton(event)}
-            >
-              <span className={styles.close}>x</span>
+            <div className={styles.photo}>
+              <span
+                className={styles.close}
+                onClick={event => markingButton(event)}>
+              x
+              </span>
               <img src={product.image} alt={product.title} />
             </div>
             <div className={styles.compare + ' col-1'}>
@@ -114,7 +115,7 @@ class NewFurniture extends React.Component {
               ))}
           </div>
           <div className={styles.stickyBar}>
-            <div className='row'>{addToStickyBar}</div>
+            <div className={'row '+styles.rowcontrol}>{addToStickyBar}</div>
           </div>
         </div>
       </div>
