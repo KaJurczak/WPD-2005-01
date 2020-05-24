@@ -1,7 +1,28 @@
 @import "../../../styles/settings.scss";
 
-.title {
-  padding: 30px 0;
-  text-align: center;
-}
+.root {
+  .baner {
+    background-color: $bg-bronze;
+    text-align: center;
+    padding: 35px;
+    color: $text-white;
 
+    .banerTitle {
+      font-weight: 250;
+      font-size: 45px;
+      b {
+        font-weight: 600;
+      }
+    }
+
+    .banerSubtitle {
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: 8px;
+      font-weight: 300;
+      a {
+        color: $text-orange;
+      }
+    }
+  }
+}
