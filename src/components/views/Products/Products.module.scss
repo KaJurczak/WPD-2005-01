@@ -26,8 +26,29 @@
     }
   }
 
+  .pageMenu {
+    background-color: $bg-dark-white;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+
+    a {
+      color: $text-black;
+      padding-left: 15px;
+      text-decoration: none;
+      .icon {
+        margin-left: 10px;
+      }
+    }
+
+    .pageActive {
+      color: $text-orange;
+    }
+  }
+
   .columnWrapper {
     display: flex;
+    padding: 30px 0;
   }
 }
 
@@ -37,6 +58,7 @@
 
     .columnFurniture {
       order: 1;
+      padding-top: 30px;
     }
 
     .columnFilter {
