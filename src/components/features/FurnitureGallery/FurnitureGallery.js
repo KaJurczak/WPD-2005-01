@@ -15,11 +15,21 @@ class FurnitureGallery extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'chair',
+    activeGalleryCat: 'toprated',
+    activeProduct: {},
   };
 
   handlePageChange(newPage) {
     this.setState({ activePage: newPage });
   }
+
+
+  handleGalleryCatChange(newGalleryCat) {
+    this.setState({ activeGalleryCat: newGalleryCat });
+    //this.handleProductChange({});
+  }
+
+
 
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
@@ -27,8 +37,11 @@ class FurnitureGallery extends React.Component {
 
   render() {
     const { products } = this.props;
-    const { activePage, activeCategory } = this.state;
+    const { activePage, activeCategory, activeGalleryCat  } = this.state;
+
     const categoryProducts = products.filter(item => item.category === activeCategory);
+    const galleryProducts = products.filter(item => item.gallery === activeGalleryCat);
+
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -48,7 +61,16 @@ class FurnitureGallery extends React.Component {
 
               <div className='row'>
                 <div className={'col ' + styles.extendOnMobile}>
-                  {categoryProducts.slice(activePage * 1, (activePage + 1) * 1).map(item => (
+
+
+                  <div className={styles.row}>
+                    <h6 onClick={() => this.handleGalleryCatChange('featured')}>FEATURED</h6>
+                    <h6 onClick={() => this.handleGalleryCatChange('topseller')}>TOP SELLER</h6>
+                    <h6 onClick={() => this.handleGalleryCatChange('saleoff')}>SALE OFF</h6>
+                    <h6 onClick={() => this.handleGalleryCatChange('toprated')}>TOP RATED</h6>
+                  </div>
+
+                  {galleryProducts.slice(activePage * 1, (activePage + 1) * 1).map(item => (
                     <div key={item.id}>
                       <GalleryBox {...item}/>
                     </div>
@@ -58,9 +80,9 @@ class FurnitureGallery extends React.Component {
                     <Button className={styles.sliderArrow}>
                       <FontAwesomeIcon icon={faAngleLeft} />
                     </Button>
-                    {categoryProducts.slice(activePage * 1, (activePage + 1) * 5).map(item => (
-                      <div key={item.id}>
-                        <GalleryBoxSliderImg {...item}/>
+                    {galleryProducts.slice(activePage * 1, (activePage + 1) * 5).map(item => (
+                      <div key={item.id}  onClick={() => this.handleProductChange(item)}>
+                        <GalleryBoxSliderImg{...item}/>
                       </div>
                     ))}
                     <Button className={styles.sliderArrow} >
@@ -93,6 +115,7 @@ FurnitureGallery.defaultProps = {
 
 FurnitureGallery.propTypes = {
   products: PropTypes.array,
+  subcategories: PropTypes.array,
 };
 
 export default FurnitureGallery;
