@@ -6,6 +6,7 @@ import ProductBox from '../../common/ProductBox/ProductBoxContainer';
 import Button from '../../common/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
+import { settings } from './NewFurniture.config.js';
 
 class NewFurniture extends React.Component {
   state = {
@@ -22,19 +23,25 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const { categories, products, choosedProductsId, removeProduct } = this.props;
+    const {
+      categories,
+      products,
+      choosedProductsId,
+      removeProduct,
+      viewport,
+    } = this.props;
     const { activeCategory, activePage } = this.state;
-
+    const itemsCount = settings[viewport];
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCount = Math.ceil(categoryProducts.length / itemsCount);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            className={i === activePage ? styles.active : ''}
           >
             page {i}
           </a>
@@ -53,11 +60,12 @@ class NewFurniture extends React.Component {
 
         return (
           <div key={product.id} className={'col-3 row ' + styles.stickyBarWrapper}>
-            <div
-              className={styles.photo + ' col-11'}
-              onClick={event => markingButton(event)}
-            >
-              <span className={styles.close}>x</span>
+            <div className={styles.photo}>
+              <span
+                className={styles.close}
+                onClick={event => markingButton(event)}>
+              x
+              </span>
               <img src={product.image} alt={product.title} />
             </div>
             <div className={styles.compare + ' col-1'}>
@@ -83,7 +91,7 @@ class NewFurniture extends React.Component {
                   {categories.map(item => (
                     <li key={item.id}>
                       <a
-                        className={item.id === activeCategory && styles.active}
+                        className={item.id === activeCategory ? styles.active : ''}
                         onClick={() => this.handleCategoryChange(item.id)}
                       >
                         {item.name}
@@ -98,14 +106,16 @@ class NewFurniture extends React.Component {
             </div>
           </div>
           <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className={'col-auto ' + styles.col}>
-                <ProductBox {...item} />
-              </div>
-            ))}
+            {categoryProducts
+              .slice(activePage * itemsCount, (activePage + 1) * itemsCount)
+              .map(item => (
+                <div key={item.id} className={'col-auto ' + styles.col}>
+                  <ProductBox {...item} />
+                </div>
+              ))}
           </div>
           <div className={styles.stickyBar}>
-            <div className='row'>{addToStickyBar}</div>
+            <div className={'row '+styles.rowcontrol}>{addToStickyBar}</div>
           </div>
         </div>
       </div>
@@ -134,6 +144,7 @@ NewFurniture.propTypes = {
   ),
   choosedProductsId: PropTypes.array,
   removeProduct: PropTypes.func,
+  viewport: PropTypes.string,
 };
 
 NewFurniture.defaultProps = {
