@@ -873,7 +873,12 @@ const initialState = {
     products: [],
   },
   favorites: ['aenean-ru-bristique-2', 'aenean-ru-bristique-24'],
-
+  ratings: [
+    {
+      id: 'aenean-ru-bristique-2',
+      rate: 3,
+    },
+  ],
   comparedProducts: {
     products: [],
   },
