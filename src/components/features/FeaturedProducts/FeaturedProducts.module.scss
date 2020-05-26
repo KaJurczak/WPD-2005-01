@@ -5,7 +5,7 @@
   background: $bg-black;
   padding: 15px;
   justify-content: space-between;
-  
+
   .heading {
     font-size: 16px;
     color: $text-white;
@@ -31,13 +31,19 @@
         display: block;
         width: 13px;
         height: 13px;
-        border-radius: 6px;
+        border-radius: 50%;
         background-color: $bg-light-silver;
         font-size: 0;
+        border: 2px solid $bg-light-silver;
 
-        &.active,
-        &:hover {
+        &.active{
           background-color: $bg-orange;
+          border: 2px solid $bg-orange;
+          cursor: pointer;
+        }
+
+        &:hover {
+          border: 2px solid $bg-orange;
           cursor: pointer;
         }
       }
