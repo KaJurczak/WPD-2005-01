@@ -142,13 +142,12 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   image: PropTypes.string,
   title: PropTypes.string,
-  isFavorite: PropTypes.bool,
+  isFavorite: PropTypes.number,
   setFavorite: PropTypes.func,
   variant: PropTypes.string,
   setProduct: PropTypes.func,
   removeProduct: PropTypes.func,
   choosedProductsId: PropTypes.array,
-  variant: PropTypes.string,
 };
 
 export default ProductBox;

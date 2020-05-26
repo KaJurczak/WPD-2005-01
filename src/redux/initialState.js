@@ -878,6 +878,7 @@ const initialState = {
   comparedProducts: {
     products: [],
   },
+  viewport: '',
 };
 
 export default initialState;

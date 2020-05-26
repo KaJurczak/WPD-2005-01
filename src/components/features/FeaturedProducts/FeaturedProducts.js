@@ -65,13 +65,13 @@ class FeaturedProducts extends React.Component {
     const dots = [];
     for (let i = 0; i < products.length; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => {
               this.restart();
               this.handlePageChange(i);
             }}
-            className={i === activePage && styles.active}
+            className={i === activePage ? styles.active : ''}
           >
             page {i}
           </a>
