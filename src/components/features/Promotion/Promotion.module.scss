@@ -138,3 +138,28 @@
       }
     }
 }
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+    grid-template-columns:  1fr;
+    grid-template-areas:
+      "photoFirst photoFirst"
+      "photoSecond photoThird";
+
+    .photoThird {
+      .wrapper {
+        margin: 60px 0 10px -60%;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    grid-template-areas:
+      "photoFirst"
+      "photoSecond"
+      "photoThird";
+  }
+}
