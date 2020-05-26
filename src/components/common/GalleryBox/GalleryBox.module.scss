@@ -1,5 +1,30 @@
 @import "../../../styles/settings.scss";
 
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    filter:saturate(0);
+  }
+  to {
+    opacity: 100;
+    filter:saturate(1);
+  }
+}
+
+@keyframes appear2 {
+  from {
+    opacity: 0;
+    filter:brightness(0) blur(3px);
+  }
+  to {
+    opacity: 100;
+    filter:brightness(1) blur(0);
+  }
+}
+
+
+
 .root {
   background-color: $bg-white;
   border: 1px solid $border-light-silver;
@@ -16,6 +41,8 @@
     overflow: hidden;
     align-items: flex-end;
     height: 280px;
+    animation: appear;
+    animation-duration: 1s;
 
     img {
       width: 100%;
@@ -159,25 +186,14 @@
     padding: 0px 10px;
   }
 
-  .slider {
-    border: 1px solid green;
-    height:50px;
-    background: yellow;
-    display: flex;
-    justify-content: space-between;
-  }
-
   .sliderImg {
     width: 100%;
+    max-width: 100px;
     height: 98px;
     object-fit: contain;
-  }
-
-  .sliderArrow {
-    height: 100px;
-    width: 40px;
-    background-color: black;
-    font-size: 10px;
+    animation: appear2;
+    animation-duration: .5s;
+    background: $bg-white;
   }
 
 

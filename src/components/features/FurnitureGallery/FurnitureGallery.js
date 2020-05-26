@@ -13,33 +13,37 @@ import Button from '../../common/Button/Button';
 
 class FurnitureGallery extends React.Component {
   state = {
-    activePage: 0,
-    activeCategory: 'chair',
     activeGalleryCat: 'toprated',
     activeProduct: {},
   };
 
-  handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
-  }
+  /* handlePageChange(e, action, ??) {
+    e.preventDefault();
 
+    let newPage = this.state.activePage;
+
+    if (action === 'next' && newPage < length ?? - 1) {
+      this.setState({ activePage: newPage + 1 });
+    }
+
+    if (action === 'prev' && newPage > 0) {
+      this.setState({ activePage: newPage - 1 });
+    }
+  } */
 
   handleGalleryCatChange(newGalleryCat) {
     this.setState({ activeGalleryCat: newGalleryCat });
-    //this.handleProductChange({});
+    this.handleProductChange({});
   }
 
-
-
-  handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+  handleProductChange(newProduct) {
+    this.setState({ activeProduct: newProduct });
   }
 
   render() {
     const { products } = this.props;
-    const { activePage, activeCategory, activeGalleryCat  } = this.state;
+    const { activePage, activeProduct, activeGalleryCat  } = this.state;
 
-    const categoryProducts = products.filter(item => item.category === activeCategory);
     const galleryProducts = products.filter(item => item.gallery === activeGalleryCat);
 
     return (
@@ -62,7 +66,6 @@ class FurnitureGallery extends React.Component {
               <div className='row'>
                 <div className={'col ' + styles.extendOnMobile}>
 
-
                   <div className={styles.row}>
                     <h6 onClick={() => this.handleGalleryCatChange('featured')}>FEATURED</h6>
                     <h6 onClick={() => this.handleGalleryCatChange('topseller')}>TOP SELLER</h6>
@@ -70,17 +73,20 @@ class FurnitureGallery extends React.Component {
                     <h6 onClick={() => this.handleGalleryCatChange('toprated')}>TOP RATED</h6>
                   </div>
 
-                  {galleryProducts.slice(activePage * 1, (activePage + 1) * 1).map(item => (
-                    <div key={item.id}>
-                      <GalleryBox {...item}/>
-                    </div>
-                  ))}
+                  <div>
+                    {activeProduct.id ? '' : this.handleProductChange(galleryProducts[0])}
+                    {galleryProducts.filter(product => product.id === activeProduct.id).map(item => (
+                      <div key={item.id}>
+                        <GalleryBox {...item} />
+                      </div>
+                    ))}
+                  </div>
 
                   <div className={styles.slider} >
                     <Button className={styles.sliderArrow}>
                       <FontAwesomeIcon icon={faAngleLeft} />
                     </Button>
-                    {galleryProducts.slice(activePage * 1, (activePage + 1) * 5).map(item => (
+                    {galleryProducts.slice(0,5).map(item => (
                       <div key={item.id}  onClick={() => this.handleProductChange(item)}>
                         <GalleryBoxSliderImg{...item}/>
                       </div>
