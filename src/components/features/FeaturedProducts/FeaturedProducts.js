@@ -61,7 +61,6 @@ class FeaturedProducts extends React.Component {
 
   render() {
     const { products } = this.props;
-    const { activePage } = this.state;
     const pages = products.length;
     let { activePage } = this.state;
     const dots = [];
