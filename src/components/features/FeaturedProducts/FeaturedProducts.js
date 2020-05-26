@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './FeaturedProducts.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBoxContainer';
+import Swipe from '../../common/Swipe/Swipe';
 
 
 class FeaturedProducts extends React.Component {
@@ -10,12 +11,22 @@ class FeaturedProducts extends React.Component {
     activePage: 0,
   };
 
+  componentDidMount() {
+    this.autoplay(false)
+  }
+
   handlePageChange(newPage) {
     this.setState({ activePage: newPage });
   }
 
-  componentDidMount() {
-    this.autoplay(false)
+  nextPage(pages) {
+    let page = this.state.activePage;
+    if (page < pages - 1) this.setState({ activePage: page + 1 });
+  }
+
+  prevPage() {
+    let page = this.state.activePage;
+    if (page > 0) this.setState({ activePage: page - 1 });
   }
 
   autoplay(restarted) {
@@ -48,22 +59,12 @@ class FeaturedProducts extends React.Component {
     this.autoplay(true)
   }
 
-
   render() {
-    //this.autoplay()
     const { products } = this.props;
-    //console.log(products.length);
+    const pages = products.length;
     let { activePage } = this.state;
-    //console.log(this.state);
-
-    //console.log(activePage);
-    //let counter = 0;
-    //console.log(counter);
-    //setInterval(function(){ counter += 1; this.handleTimerChange(); }, 3000);
-    //this.handlePageChange (1)
-
     const dots = [];
-    for (let i = 0; i < products.length; i++) {
+    for (let i = 0; i < pages; i++) {
       dots.push(
         <li key={i}>
           <a
@@ -88,11 +89,16 @@ class FeaturedProducts extends React.Component {
             <ul>{dots}</ul>
           </div>
         </div>
-        {products.slice(activePage * 1, (activePage + 1) * 1).map(item => (
-          <div key={item.id}>
-            <ProductBox {...item} variant='featured' />
-          </div>
-        ))}
+        <Swipe
+          leftAction={() => this.nextPage(pages)}
+          rightAction={() => this.prevPage()}
+        >
+          {products.slice(activePage * 1, (activePage + 1) * 1).map(item => (
+            <div key={item.id}>
+              <ProductBox {...item} variant='featured' />
+            </div>
+          ))}
+        </Swipe>
       </div>
     );
 
