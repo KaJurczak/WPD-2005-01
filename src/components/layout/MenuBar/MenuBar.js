@@ -16,7 +16,7 @@ const MenuBar = ({ children }) => (
           <ProductSearch />
         </div>
         <div className={'col-auto ' + styles.menu}>
-          <a href='#' className={styles.menuIcon}>
+          <span href='#' className={styles.menuIcon}>
             <FontAwesomeIcon className={styles.icon} icon={faBars} />
             <ul className={styles.smallMenu}>
               <li>
@@ -43,7 +43,7 @@ const MenuBar = ({ children }) => (
                 <a href='#'>Blog</a>
               </li>
             </ul>
-          </a>
+          </span>
           <ul>
             <li>
               <Link to='/' className={styles.active}>

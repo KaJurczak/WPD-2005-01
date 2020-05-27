@@ -482,6 +482,7 @@ const initialState = {
       price: 30,
       stars: 2,
       promo: 'sale',
+      featured: true,
       newFurniture: true,
       favorite: '',
       compare: '',
@@ -882,6 +883,7 @@ const initialState = {
   comparedProducts: {
     products: [],
   },
+  viewport: '',
 };
 
 export default initialState;
