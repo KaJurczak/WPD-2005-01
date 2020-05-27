@@ -26,9 +26,22 @@ class Ratings extends React.Component {
     setRatings(item, rate);
   }
 
-  render() {
+  setIcon(item) {
     const { hover, hovered } = this.state;
-    const { points, iconHover, iconDefault, initValue, itemValue, itemId } = this.props;
+    const { initValue, itemValue, iconHover, iconDefault } = this.props;
+
+    if (itemValue.length) {
+      if (item <= itemValue[0].rate || (hover && item <= hovered)) {
+        return iconHover;
+      } else return iconDefault;
+    } else if (item <= initValue || (hover && item <= hovered)) {
+      return iconHover;
+    } else return iconDefault;
+  }
+
+  render() {
+    const { hovered } = this.state;
+    const { points, itemValue, itemId } = this.props;
     const items = [];
     for (let i = 1; i <= points; i++) {
       items.push(i);
@@ -39,15 +52,7 @@ class Ratings extends React.Component {
           <a key={item} href='#' className={styles.root}>
             <FontAwesomeIcon
               key={item}
-              icon={
-                itemValue.length
-                  ? item <= itemValue[0].rate || (hover && item <= hovered)
-                    ? iconHover
-                    : iconDefault
-                  : item <= initValue || (hover && item <= hovered)
-                  ? iconHover
-                  : iconDefault
-              }
+              icon={this.setIcon(item)}
               onMouseEnter={() => this.onHover(item)}
               onMouseLeave={() => this.onLeave()}
               onClick={e => this.setRate(e, itemId, item)}
