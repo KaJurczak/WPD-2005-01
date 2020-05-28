@@ -25,15 +25,15 @@ class FurnitureGallery extends React.Component {
     console.log('reset!');
   }
 
-  handlePageChange(e, action, len) {
+  handlePageChange(e, action) {
     e.preventDefault();
 
     const { firstToDisplay, lastToDisplay, activeGalleryCat } = this.state;
 
     const { products } = this.props;
-    const galleryProductsLenght = products.filter(item => item.gallery === activeGalleryCat).length
-    const moveBy = 6
-    const remainder = galleryProductsLenght % moveBy
+    const galleryProductsLenght = products.filter(item => item.gallery === activeGalleryCat).length;
+    const moveBy = 6;
+    const remainder = galleryProductsLenght % moveBy;
 
 
     if (action === 'next') {
@@ -61,7 +61,7 @@ class FurnitureGallery extends React.Component {
         console.log('full back');
 
       } else {
-        this.resetPage()
+        this.resetPage();
       }
     }
   }
@@ -69,7 +69,7 @@ class FurnitureGallery extends React.Component {
   handleGalleryCatChange(newGalleryCat) {
     this.setState({ activeGalleryCat: newGalleryCat });
     this.handleProductChange({});
-    this.resetPage()
+    this.resetPage();
   }
 
   handleProductChange(newProduct) {
@@ -78,7 +78,7 @@ class FurnitureGallery extends React.Component {
 
   render() {
     const { products } = this.props;
-    const { activePage, activeProduct, activeGalleryCat, firstToDisplay, lastToDisplay  } = this.state;
+    const { activeProduct, activeGalleryCat, firstToDisplay, lastToDisplay  } = this.state;
 
     const galleryProducts = products.filter(item => item.gallery === activeGalleryCat);
     const len = galleryProducts.length;
@@ -121,7 +121,7 @@ class FurnitureGallery extends React.Component {
                   </div>
 
                   <div className={styles.slider} >
-                    <Button className={styles.sliderArrow} onClick={(e) => this.handlePageChange(e,'prev',len)}>
+                    <Button className={styles.sliderArrow} onClick={(e) => this.handlePageChange(e,'prev')}>
                       <FontAwesomeIcon icon={faAngleLeft} />
                     </Button>
                     {galleryProducts.slice(firstToDisplay,lastToDisplay).map(item => (
@@ -129,7 +129,7 @@ class FurnitureGallery extends React.Component {
                         <GalleryBoxSliderImg{...item}/>
                       </div>
                     ))}
-                    <Button className={styles.sliderArrow} onClick={(e) => this.handlePageChange(e,'next',len)} >
+                    <Button className={styles.sliderArrow} onClick={(e) => this.handlePageChange(e,'next')} >
                       <FontAwesomeIcon icon={faAngleRight}/>
                     </Button>
                   </div>

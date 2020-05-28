@@ -448,6 +448,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'saleoff',
     },
     {
       id: 'chair-9',
@@ -760,6 +761,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'saleoff',
     },
     {
       id: 'table-9',
