@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import styles from './Homepage.module.scss';
 
@@ -11,14 +11,17 @@ import Brands from '../../features/Brands/Brands';
 import FurnitureGallery from '../../features/FurnitureGallery/FurnitureGalleryContainer';
 import Feedback from '../../features/Feedback/Feedback';
 
-
-const Homepage = () => (
+const Homepage = ({ viewport }) => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row'>
-        <div className='col-12 col-lg-4'>
-          <FeaturedProducts />
-        </div>
+        {viewport !== 'mobile' ? (
+          <div className='col-12 col-lg-4'>
+            <FeaturedProducts />
+          </div>
+        ) : (
+          ''
+        )}
         <div className='col-12 col-lg-8 pl-lg-0'>
           <BanerSlider />
         </div>
@@ -32,6 +35,8 @@ const Homepage = () => (
   </div>
 );
 
-// Homepage.propTypes = {};
+Homepage.propTypes = {
+  viewport: PropTypes.string,
+};
 
 export default Homepage;
