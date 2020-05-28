@@ -4,15 +4,13 @@ import styles from './FeaturedProducts.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBoxContainer';
 import Swipe from '../../common/Swipe/Swipe';
 
-
 class FeaturedProducts extends React.Component {
-
   state = {
     activePage: 0,
   };
 
   componentDidMount() {
-    this.autoplay(false)
+    this.autoplay(false);
   }
 
   handlePageChange(newPage) {
@@ -35,28 +33,33 @@ class FeaturedProducts extends React.Component {
     let maxCount = products.length;
     let counter = -1;
 
-    if (restarted === true) {counter = -3; console.log('autoplay restarts');}
-    else {console.log('autoplay first run');}
+    if (restarted === true) {
+      counter = -3;
+      console.log('autoplay restarts');
+    } else {
+      console.log('autoplay first run');
+    }
 
+    this.autoplayEngine = setInterval(() => {
+      if (counter < maxCount - 1) {
+        counter += 1;
+      } else {
+        counter = 0;
+      }
 
-    this.autoplayEngine = setInterval(
-      () => {
+      if (counter >= 0) {
+        this.handlePageChange(counter);
+      } else {
+        console.log('waiting...');
+      }
 
-        if (counter < maxCount-1) {counter +=1;}
-        else {counter = 0;}
-
-        if (counter >= 0) {this.handlePageChange(counter);}
-        else {console.log('waiting...');}
-
-        console.log(counter);
-      },
-      intervalDuration
-    );
+      console.log(counter);
+    }, intervalDuration);
   }
 
-  restart () {
+  restart() {
     clearInterval(this.autoplayEngine);
-    this.autoplay(true)
+    this.autoplay(true);
   }
 
   render() {
@@ -101,7 +104,6 @@ class FeaturedProducts extends React.Component {
         </Swipe>
       </div>
     );
-
   }
 }
 

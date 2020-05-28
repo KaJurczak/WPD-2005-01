@@ -1,0 +1,11 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  color: $text-black;
+  &:hover ~ a, :hover {
+    color: $text-orange;
+  }
+  .active {
+    color: $text-orange;
+  }
+}
