@@ -4,6 +4,7 @@ import Button from '../../common/Button/Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import Swipe from '../../common/Swipe/Swipe';
 
 const brandsData = [
   'https://pics.tinypic.pl/i/01006/u3zvh8bu88b4.png',
