@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Products.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import ColorProductFilter from '../../features/ColorProductFilter/ColorProductFilter';
 
 const Products = () => (
   <div className={styles.root}>
@@ -31,8 +32,7 @@ const Products = () => (
           FURNITURE TEST COLUMN FURNITURE TEST COLUMN FURNITURE TEST COLUMN FURNITURE
         </div>
         <div className={`col-12 col-sm-3 ${styles.columnFilter}`}>
-          TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER
-          TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN
+          <ColorProductFilter />
         </div>
       </div>
     </div>
