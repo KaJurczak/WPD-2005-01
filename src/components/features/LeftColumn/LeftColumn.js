@@ -55,6 +55,7 @@ class LeftColumn extends React.Component {
         <ProductInColumn className={styles.productCard} />
         <ProductInColumn className={styles.productCard} />
         <ProductInColumn className={styles.productCard} />
+        <ProductInColumn className={styles.productCard} />
       </div>
     );
   }
