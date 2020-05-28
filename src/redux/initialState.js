@@ -364,6 +364,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'chair-3',
@@ -377,6 +378,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'chair-4',
@@ -419,6 +421,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'chair-7',
@@ -585,6 +588,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'sofa-6',
@@ -626,6 +630,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'sofa-9',
@@ -653,6 +658,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'table-2',
@@ -681,6 +687,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'table-4',
@@ -738,6 +745,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'table-8',
@@ -835,6 +843,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'dining-5',

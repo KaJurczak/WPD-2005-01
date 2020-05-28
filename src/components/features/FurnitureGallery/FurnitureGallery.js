@@ -15,25 +15,61 @@ class FurnitureGallery extends React.Component {
   state = {
     activeGalleryCat: 'toprated',
     activeProduct: {},
+    firstToDisplay: 0,
+    lastToDisplay: 6,
   };
 
-  /* handlePageChange(e, action, ??) {
+  resetPage() {
+    this.setState({ firstToDisplay: 0 });
+    this.setState({ lastToDisplay: 6 });
+    console.log('reset!');
+  }
+
+  handlePageChange(e, action, len) {
     e.preventDefault();
 
-    let newPage = this.state.activePage;
+    const { firstToDisplay, lastToDisplay, activeGalleryCat } = this.state;
 
-    if (action === 'next' && newPage < length ?? - 1) {
-      this.setState({ activePage: newPage + 1 });
+    const { products } = this.props;
+    const galleryProductsLenght = products.filter(item => item.gallery === activeGalleryCat).length
+    const moveBy = 6
+    const remainder = galleryProductsLenght % moveBy
+
+
+    if (action === 'next') {
+
+      if (lastToDisplay + moveBy < galleryProductsLenght) {
+
+        this.setState({ firstToDisplay: firstToDisplay  + moveBy });
+        this.setState({ lastToDisplay: lastToDisplay + moveBy });
+        console.log('full forward');
+      } else if (lastToDisplay + moveBy > galleryProductsLenght && lastToDisplay < galleryProductsLenght){
+
+        this.setState({ firstToDisplay: firstToDisplay  + remainder });
+        this.setState({ lastToDisplay: lastToDisplay + remainder });
+        console.log('forward by remainder');
+      } else {
+        console.log('stop');
+      }
+
     }
 
-    if (action === 'prev' && newPage > 0) {
-      this.setState({ activePage: newPage - 1 });
+    if (action === 'prev') {
+      if (firstToDisplay >= moveBy) {
+        this.setState({ firstToDisplay: firstToDisplay  - moveBy });
+        this.setState({ lastToDisplay: lastToDisplay - moveBy });
+        console.log('full back');
+
+      } else {
+        this.resetPage()
+      }
     }
-  } */
+  }
 
   handleGalleryCatChange(newGalleryCat) {
     this.setState({ activeGalleryCat: newGalleryCat });
     this.handleProductChange({});
+    this.resetPage()
   }
 
   handleProductChange(newProduct) {
@@ -42,9 +78,11 @@ class FurnitureGallery extends React.Component {
 
   render() {
     const { products } = this.props;
-    const { activePage, activeProduct, activeGalleryCat  } = this.state;
+    const { activePage, activeProduct, activeGalleryCat, firstToDisplay, lastToDisplay  } = this.state;
 
     const galleryProducts = products.filter(item => item.gallery === activeGalleryCat);
+    const len = galleryProducts.length;
+
 
     return (
       <div className={styles.root}>
@@ -67,10 +105,10 @@ class FurnitureGallery extends React.Component {
                 <div className={'col ' + styles.extendOnMobile}>
 
                   <div className={styles.row}>
-                    <h6 onClick={() => this.handleGalleryCatChange('featured')}>FEATURED</h6>
-                    <h6 onClick={() => this.handleGalleryCatChange('topseller')}>TOP SELLER</h6>
-                    <h6 onClick={() => this.handleGalleryCatChange('saleoff')}>SALE OFF</h6>
-                    <h6 onClick={() => this.handleGalleryCatChange('toprated')}>TOP RATED</h6>
+                    <h6 onClick={() => this.handleGalleryCatChange('featured') }>FEATURED</h6>
+                    <h6 onClick={() => this.handleGalleryCatChange('topseller') }>TOP SELLER</h6>
+                    <h6 onClick={() => this.handleGalleryCatChange('saleoff') }>SALE OFF</h6>
+                    <h6 onClick={() => this.handleGalleryCatChange('toprated') }>TOP RATED</h6>
                   </div>
 
                   <div>
@@ -83,15 +121,15 @@ class FurnitureGallery extends React.Component {
                   </div>
 
                   <div className={styles.slider} >
-                    <Button className={styles.sliderArrow}>
+                    <Button className={styles.sliderArrow} onClick={(e) => this.handlePageChange(e,'prev',len)}>
                       <FontAwesomeIcon icon={faAngleLeft} />
                     </Button>
-                    {galleryProducts.slice(0,5).map(item => (
+                    {galleryProducts.slice(firstToDisplay,lastToDisplay).map(item => (
                       <div key={item.id}  onClick={() => this.handleProductChange(item)}>
                         <GalleryBoxSliderImg{...item}/>
                       </div>
                     ))}
-                    <Button className={styles.sliderArrow} >
+                    <Button className={styles.sliderArrow} onClick={(e) => this.handlePageChange(e,'next',len)} >
                       <FontAwesomeIcon icon={faAngleRight}/>
                     </Button>
                   </div>
