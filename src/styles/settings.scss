@@ -5,7 +5,7 @@ Base colors - NOT USE IN COMPONENTS - DEFINE NEW VARIABLE
 
 $white: #ffffff;
 $darkWhite: #e2e2e2;
-$whiteBlue:#f4f5f7;
+$whiteBlue: #f4f5f7;
 $darkWhiteBLue: #e0e3ed;
 
 $orange: #d58e32;
@@ -26,7 +26,6 @@ $grey: #a9a9a9;
 /* Define variables style colors - USE VARIABLE BASE COLORS
 example: "$element" + "color": "$color" ($text-white: $white) */
 
-
 // text //
 $text-white: $white;
 $text-black: $black;
@@ -36,24 +35,25 @@ $text-dark-white-blue: $darkWhiteBLue;
 $text-grey: $grey;
 
 // border //
-$border-black:$black;
+$border-black: $black;
 $border-silver: $silver;
 $border-light-silver: $lightSilver;
 $border-orange: $orange;
 $border-dark-white: $darkWhite;
 $border-white: $white;
 $border-light-black: $lightBlack;
+$border-grey: $grey;
 
 // background //
 $bg-white: $white;
 $bg-white-blue: $whiteBlue;
+$bg-dark-white: $darkWhite;
 $bg-orange: $orange;
 $bg-light-black: $lightBlack;
 $bg-light-silver: $lightSilver;
 $bg-bronze: $bronze;
 $bg-light-bronze: $lightBronze;
 $bg-black: $black;
-
 
 /*----------$transition-base----------*/
 // Adjust transition variables to modify global transition base */
@@ -64,4 +64,5 @@ $trans-baseDuration: 250ms;
 $trans-baseTiming: ease;
 $trans-baseDelay: 0ms;
 
-$transition-base: $trans-baseProperty $trans-baseDuration $trans-baseTiming $trans-baseDelay;
+$transition-base: $trans-baseProperty $trans-baseDuration $trans-baseTiming
+  $trans-baseDelay;
