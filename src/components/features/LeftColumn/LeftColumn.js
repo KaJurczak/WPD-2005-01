@@ -3,8 +3,8 @@ import styles from './LeftColumn.module.scss';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThList, faThLarge } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+
+import ProductInColumn from './ProductInColumn';
 class LeftColumn extends React.Component {
   state = {
     products: { ...this.props.products },
@@ -19,8 +19,7 @@ class LeftColumn extends React.Component {
   };
 
   render() {
-    const { sortMenu, show, products } = this.state;
-    const { stars } = this.state.products[0];
+    const { sortMenu, show } = this.state;
     return (
       <div className={styles.component}>
         <div className={styles.sortAndShow}>
@@ -50,29 +49,12 @@ class LeftColumn extends React.Component {
         </div>
 
         {/* -------------- CARD PRODUCT --------------*/}
-        <div className={styles.productCard}>
-          <div className={styles.productPhoto}>
-            <div className={styles.photoText}>sale</div>
-          </div>
 
-          <div className={styles.productValue}>
-            <div className={styles.nameProduct}>{products[0].name}</div>
-            <div className={styles.price}>${products[0].price}</div>
-            <div className={styles.rating}>
-              <div className={styles.stars}>
-                {[1, 2, 3, 4, 5].map(i => (
-                  <a key={i} href='#'>
-                    {i <= stars ? (
-                      <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-                    ) : (
-                      <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-                    )}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProductInColumn className={styles.productCard} />
+        <ProductInColumn className={styles.productCard} />
+        <ProductInColumn className={styles.productCard} />
+        <ProductInColumn className={styles.productCard} />
+        <ProductInColumn className={styles.productCard} />
       </div>
     );
   }

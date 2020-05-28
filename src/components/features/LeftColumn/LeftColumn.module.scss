@@ -4,26 +4,27 @@
 
   height: auto;
   padding-bottom: 2px;
+
   .sortAndShow {
     border-bottom: solid 1px $border-black;
     padding-bottom: 6px;
     display: grid;
     grid-template-columns:  1fr 3fr;
     grid-template-rows: 1fr ;
-
     grid-template-areas:
       "title functionColumn";
 
 
     .title {
       grid-area: title;
-
       font-size: 20px;
     }
+
     .functionColumn {
       grid-area: functionColumn;
       display: inline-block;
       justify-self: end;
+
       .dropdownMenu {
         display: inline-block;
 
@@ -44,19 +45,15 @@
         border: 1px solid $border-light-grey;
         display: inline-block;
 
-
         .icon {
           justify-content: center;
-          margin: 4px 10px;
+          margin: 4px 10px 1px 4px;
 
           &:hover {
             color: $text-orange;
             cursor: pointer;
           }
-
-
         }
-
       }
     }
   }
@@ -64,7 +61,6 @@
   .productCard {
     border-top: solid 1px $border-black;
     width: 100%;
-
     padding: 30px 0;
     display: grid;
     grid-template-columns:  1fr 2.5fr;
@@ -73,18 +69,14 @@
     grid-template-areas:
     "productPhoto productValue";
 
-
     .productPhoto {
       grid-area: productPhoto;
-      height: 200px;
+      height: 280px;
       background-color: $bg-white-blue;
 
       .photoText {
-
-
         width: 53px;
         margin: -1px auto 0 auto;
-
         border-left: 10px solid black;
         border-right: 10px solid black;
         border-bottom-left-radius: 90px ;
@@ -94,16 +86,16 @@
         color: $text-white;
       }
     }
-    .productValue {
 
+    .productValue {
       grid-area: productValue;
 
       .nameProduct {
-
         font-weight: bolder;
         color: $text-orange;
         margin-bottom: 10px;
       }
+
       .price {
       font-weight: bolder;
       margin-bottom: 10px;
@@ -111,15 +103,29 @@
       }
 
       .rating {
+        margin-bottom: 16px;
 
-        margin-bottom: 10px;;
-        .stars a{
+        .stars a {
         color: $text-black;
-        font-weight: 100;
+        }
+      }
+
+      .descProduct {
+        width: 100%;
+        display: block;
+        border-bottom: 1px solid $border-dark-grey;
+        padding-bottom: 28px;
+        margin-bottom: 28px;
+      }
+
+      .iconsProduct {
+        padding-top: 10px;
+
+        button {
+          margin-right: 20px;
+          background-color: $bg-white;
         }
       }
     }
-
   }
-
 }
