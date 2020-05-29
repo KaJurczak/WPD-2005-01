@@ -2,27 +2,9 @@ import React from 'react';
 import styles from './Products.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import FilterCategories from '../../features/FilterCategories/FilterCategories';
 
 const Products = () => {
-  const listElement = (categorie, number) => (
-    <li className={styles.categoriesItem}>
-      <a href='#' className={`${styles.categoriesInner}`}>
-        <FontAwesomeIcon className={`${styles.icon}`} icon={faAngleRight} />
-        <div className={`${styles.categoriesSubtitle}`}>{categorie}</div>
-        <div className={styles.categoriesNumber}>{number}</div>
-      </a>
-    </li>
-  );
-  const listElementActive = (categorie, number) => (
-    <li className={`${styles.categoriesItem} ${styles.categoriesActive}`}>
-      <a href='#' className={styles.categoriesInner}>
-        <FontAwesomeIcon className={`${styles.icon}`} icon={faAngleRight} />
-        <div className={`${styles.categoriesSubtitle}`}>{categorie}</div>
-        <div className={styles.categoriesNumber}>{number}</div>
-      </a>
-    </li>
-  );
-
   return (
     <div className={styles.root}>
       <div className={'container'}>
@@ -52,19 +34,7 @@ const Products = () => {
             FURNITURE
           </div>
           <div className={`col-12 col-sm-3 ${styles.columnFilter}`}>
-            <div className={styles.categoriesFilter}>
-              <div className={styles.categoriesTitle}>
-                <h5>FILTER BY CATEGORIES</h5>
-              </div>
-              <ul>
-                {listElementActive('Furniture', 3)}
-                {listElement('Sofa', 4)}
-                {listElement('Chair', 5)}
-                {listElement('Table', 5)}
-                {listElement('Bedroom', 5)}
-                {listElement('Furniture', 5)}
-              </ul>
-            </div>
+            <FilterCategories />
             TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER
             TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN
           </div>
