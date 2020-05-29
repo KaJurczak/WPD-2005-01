@@ -7,6 +7,7 @@ import Button from '../../common/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
 import { settings } from './NewFurniture.config.js';
+import Swipe from '../../common/Swipe/Swipe';
 
 class NewFurniture extends React.Component {
   state = {
@@ -18,8 +19,18 @@ class NewFurniture extends React.Component {
     this.setState({ activePage: newPage });
   }
 
+  nextPage(pages) {
+    let page = this.state.activePage;
+    if (page < pages - 1) this.setState({ activePage: page + 1 });
+  }
+
+  prevPage() {
+    let page = this.state.activePage;
+    if (page > 0) this.setState({ activePage: page - 1 });
+  }
+
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    this.setState({ activeCategory: newCategory, activePage: 0 });
   }
 
   render() {
@@ -61,10 +72,8 @@ class NewFurniture extends React.Component {
         return (
           <div key={product.id} className={'col-3 row ' + styles.stickyBarWrapper}>
             <div className={styles.photo}>
-              <span
-                className={styles.close}
-                onClick={event => markingButton(event)}>
-              x
+              <span className={styles.close} onClick={event => markingButton(event)}>
+                x
               </span>
               <img src={product.image} alt={product.title} />
             </div>
@@ -105,17 +114,22 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts
-              .slice(activePage * itemsCount, (activePage + 1) * itemsCount)
-              .map(item => (
-                <div key={item.id} className={'col-auto ' + styles.col}>
-                  <ProductBox {...item} />
-                </div>
-              ))}
-          </div>
+          <Swipe
+            leftAction={() => this.nextPage(pagesCount)}
+            rightAction={() => this.prevPage()}
+          >
+            <div className='row'>
+              {categoryProducts
+                .slice(activePage * itemsCount, (activePage + 1) * itemsCount)
+                .map(item => (
+                  <div key={item.id} className={'col-auto ' + styles.col}>
+                    <ProductBox {...item} />
+                  </div>
+                ))}
+            </div>
+          </Swipe>
           <div className={styles.stickyBar}>
-            <div className={'row '+styles.rowcontrol}>{addToStickyBar}</div>
+            <div className={'row ' + styles.rowcontrol}>{addToStickyBar}</div>
           </div>
         </div>
       </div>

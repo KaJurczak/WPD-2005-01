@@ -48,26 +48,29 @@ class FurnitureGallery extends React.Component {
 
               <div className='row'>
                 <div className={'col ' + styles.extendOnMobile}>
-                  {categoryProducts.slice(activePage * 1, (activePage + 1) * 1).map(item => (
-                    <div key={item.id}>
-                      <GalleryBox {...item}/>
-                    </div>
-                  ))}
+                  {categoryProducts
+                    .slice(activePage * 1, (activePage + 1) * 1)
+                    .map(item => (
+                      <div key={item.id}>
+                        <GalleryBox {...item} />
+                      </div>
+                    ))}
 
-                  <div className={styles.slider} >
+                  <div className={styles.slider}>
                     <Button className={styles.sliderArrow}>
                       <FontAwesomeIcon icon={faAngleLeft} />
                     </Button>
-                    {categoryProducts.slice(activePage * 1, (activePage + 1) * 5).map(item => (
-                      <div key={item.id}>
-                        <GalleryBoxSliderImg {...item}/>
-                      </div>
-                    ))}
-                    <Button className={styles.sliderArrow} >
-                      <FontAwesomeIcon icon={faAngleRight}/>
+                    {categoryProducts
+                      .slice(activePage * 1, (activePage + 1) * 5)
+                      .map(item => (
+                        <div key={item.id}>
+                          <GalleryBoxSliderImg {...item} />
+                        </div>
+                      ))}
+                    <Button className={styles.sliderArrow}>
+                      <FontAwesomeIcon icon={faAngleRight} />
                     </Button>
                   </div>
-
                 </div>
               </div>
             </div>
