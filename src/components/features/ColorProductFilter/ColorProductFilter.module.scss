@@ -1,0 +1,51 @@
+@import "../../../styles/settings.scss";
+
+.component {
+  .title {
+    font-weight: bolder;
+    border-bottom: 1px solid $border-black;
+    padding: 10px 0;
+  }
+  .listWrapper {
+    padding-left: 0px;
+
+    .listItem,
+    .listItemActive {
+      list-style-type: none;
+      display: flex;
+      padding: 15px 0 0 0;
+
+      .colorName {
+        padding-left: 10px;
+        text-align: center;
+      }
+
+      .iconRed {
+        color: red;
+      }
+      .iconBlack {
+        color: black;
+      }
+      .iconYellow {
+        color: yellow;
+      }
+      .iconBlue {
+        color: blue;
+      }
+      .iconPink {
+        color: pink;
+      }
+      .iconGreen {
+        color: green;
+      }
+    }
+
+    .listItemActive {
+      padding: 15px 0 0 15px;
+
+      .colorName {
+        color: $text-orange;
+      }
+    }
+  }
+}

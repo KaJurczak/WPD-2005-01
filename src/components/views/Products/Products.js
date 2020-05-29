@@ -3,6 +3,8 @@ import styles from './Products.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import FilterCategories from '../../features/FilterCategories/FilterCategories';
+import LeftColumn from '../../features/LeftColumn/LeftColumnContainer';
+import ColorProductFilter from '../../features/ColorProductFilter/ColorProductFilter';
 
 const Products = () => {
   return (
@@ -29,12 +31,11 @@ const Products = () => {
 
         <div className={`row ${styles.columnWrapper}`}>
           <div className={`col-12 col-sm-9 ${styles.columnFurniture}`}>
-            TEST COLUMN FURNITURE TEST COLUMN FURNITURE TEST COLUMN FURNITURE TEST
-            COLUMN FURNITURE TEST COLUMN FURNITURE TEST COLUMN FURNITURE TEST COLUMN
-            FURNITURE
+            <LeftColumn />
           </div>
           <div className={`col-12 col-sm-3 ${styles.columnFilter}`}>
             <FilterCategories />
+            <ColorProductFilter />
             TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER
             TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN
           </div>
