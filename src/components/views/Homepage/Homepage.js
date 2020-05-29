@@ -14,7 +14,7 @@ import Feedback from '../../features/Feedback/Feedback';
 const Homepage = ({ viewport }) => (
   <div className={styles.root}>
     <div className='container'>
-      <div className='row'>
+      <div className='row pt-3'>
         {viewport !== 'mobile' ? (
           <div className='col-12 col-lg-4'>
             <FeaturedProducts />
