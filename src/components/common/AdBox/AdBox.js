@@ -25,5 +25,4 @@ const AdBox = () => (
   </div>
 );
 
-
 export default AdBox;
