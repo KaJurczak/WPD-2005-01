@@ -1,0 +1,41 @@
+@import '../../../styles/settings.scss';
+
+.component {
+  width: 100%;
+  margin: 20px 0;
+  display: inline-block;
+
+  .title {
+    margin: 10px 0;
+    border-bottom: 1px solid $border-black;
+
+  }
+  .tags {
+    width: auto;
+    height: auto;
+    border: 1px solid $border-black;
+    display: inline-block;
+    margin: 10px 6px 0 6px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+
+    .icon {
+      margin: 0 8px;
+    }
+
+    p {
+      display: inline-block;
+      padding: 16px 18px 2px 0 ;
+
+    }
+
+    &:hover{
+      border: 1px solid $border-orange;
+
+      .icon, p {
+        color: $text-orange;
+      }
+    }
+  }
+}
