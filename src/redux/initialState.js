@@ -8,10 +8,10 @@ const initialState = {
   ],
 
   galleryCategories: [
-    { id: 'saleoff' },
-    { id: 'featured' },
-    { id: 'topseller' },
-    { id: 'toprated' },
+    { id: 'saleoff', name: 'sale off' },
+    { id: 'featured', name: 'featured' },
+    { id: 'topseller', name: 'top seller' },
+    { id: 'toprated', name: 'top rated' },
   ],
 
 

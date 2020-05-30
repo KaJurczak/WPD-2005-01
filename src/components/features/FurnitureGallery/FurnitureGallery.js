@@ -77,11 +77,10 @@ class FurnitureGallery extends React.Component {
   }
 
   render() {
-    const { products } = this.props;
+    const { products, galleryCategories } = this.props;
     const { activeProduct, activeGalleryCat, firstToDisplay, lastToDisplay  } = this.state;
 
     const galleryProducts = products.filter(item => item.gallery === activeGalleryCat);
-    const len = galleryProducts.length;
 
 
     return (
@@ -105,10 +104,11 @@ class FurnitureGallery extends React.Component {
                 <div className={'col ' + styles.extendOnMobile}>
 
                   <div className={styles.row}>
-                    <h6 onClick={() => this.handleGalleryCatChange('featured') }>FEATURED</h6>
-                    <h6 onClick={() => this.handleGalleryCatChange('topseller') }>TOP SELLER</h6>
-                    <h6 onClick={() => this.handleGalleryCatChange('saleoff') }>SALE OFF</h6>
-                    <h6 onClick={() => this.handleGalleryCatChange('toprated') }>TOP RATED</h6>
+                    {galleryCategories.map(item => (
+                      <h6 key={item.id} onClick={() => this.handleGalleryCatChange(item.id)}>
+                        {item.name}
+                      </h6>
+                    ))}
                   </div>
 
                   <div>
@@ -159,7 +159,7 @@ FurnitureGallery.defaultProps = {
 
 FurnitureGallery.propTypes = {
   products: PropTypes.array,
-  subcategories: PropTypes.array,
+  galleryCategories: PropTypes.array,
 };
 
 export default FurnitureGallery;
