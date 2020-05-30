@@ -5,6 +5,7 @@ import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import FilterCategories from '../../features/FilterCategories/FilterCategories';
 import LeftColumn from '../../features/LeftColumn/LeftColumnContainer';
 import ColorProductFilter from '../../features/ColorProductFilter/ColorProductFilter';
+import SizeProductFilter from '../../features/SizeProductFilter/SizeProductFilter';
 
 const Products = () => {
   return (
@@ -36,6 +37,7 @@ const Products = () => {
           <div className={`col-12 col-sm-3 ${styles.columnFilter}`}>
             <FilterCategories />
             <ColorProductFilter />
+            <SizeProductFilter />
             TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER
             TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN
           </div>
