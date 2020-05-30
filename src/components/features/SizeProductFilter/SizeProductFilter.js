@@ -17,13 +17,14 @@ class SizeProductFilter extends React.Component {
           <div key={key}>
             <div className={Styles.filters}>
               <div className={Styles.titleFilter}>
-                <div className={Styles.icon} />
+                <div className={Styles.icon}>
+                  <p>✓</p>
+                </div>
                 {key}
               </div>
               <div className={Styles.valueFilter}>
-                <div className={Styles.insideValue}>3</div>
+                <div className={Styles.insideValue}>{size[key]}</div>
               </div>
-
               <br />
             </div>
           </div>

@@ -8,43 +8,49 @@
     border-bottom: 1px solid $border-black;
     margin: 20px 0;
   }
+
   .filters {
     margin-top: 4px;
-
+    cursor: pointer;
     .titleFilter {
+
       width: 49%;
       height: 24px;
       display: inline-block;
       margin-bottom: 7px;
       color: $text-black;
 
-
       .icon{
+
         height: 14px;
-      width: 14px;
+        width: 14px;
         margin-left: 15px;
         font-size: 12px;
         color: $text-white;
         margin-right: 10px;
         margin-top: 10px;
-        &:hover {
-          color: $text-orange;
-          }
+        text-align: center;
 
+        p {
+          position: absolute;
+          font-size: 10px;
+          font-weight: bolder;
+          vertical-align: middle;
+          margin-top: -2px;
+          padding-left: 3px;
+
+        }
       }
 
     }
 
-
-
     .icon{
 
       color: white;
-      border: 1px solid black;
+      border: 1px solid $border-black;
       border-radius: 2px;
       margin-right: 10px;
       display: inline-block;
-
     }
 
     .valueFilter  {
@@ -52,21 +58,32 @@
       width: 49%;
       text-align: right;
 
-      .insideValue, .insideValueUncheck{
+      .insideValue {
         width: 24px;
         height: 24px;
         display: inline-block;
         text-align: center;
-        border: 1px solid $border-orange;
+        border: 1px solid $border-black;
         color: $text-white;
-        background-color: $bg-orange;
+        background-color: $bg-black;
         border-radius: 50%;
       }
+    }
+    &:hover {
 
-      .insideValueUncheck {
-        border: 1px solid $border-black;
-        background-color: $bg-black;
+      .titleFilter {
+        color: $text-orange;
+        padding-left: 14px;
+      }
+      .icon {
+        border: 1px solid $border-orange;
+        background-color: orange;
+      }
+      .insideValue {
+        border: 1px solid $border-orange;
+        background-color: $bg-orange;
       }
     }
   }
 }
+
