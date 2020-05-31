@@ -6,6 +6,15 @@ const initialState = {
     { id: 'table', name: 'Table' },
     { id: 'dining', name: 'Dining' },
   ],
+
+  galleryCategories: [
+    { id: 'saleoff', name: 'sale off' },
+    { id: 'featured', name: 'featured' },
+    { id: 'topseller', name: 'top seller' },
+    { id: 'toprated', name: 'top rated' },
+  ],
+
+
   products: [
     {
       id: 'aenean-ru-bristique-1',
@@ -341,6 +350,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'topseller',
     },
     {
       id: 'chair-2',
@@ -354,6 +364,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'chair-3',
@@ -367,6 +378,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'chair-4',
@@ -380,6 +392,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'topseller',
     },
     {
       id: 'chair-5',
@@ -394,6 +407,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'featured',
     },
     {
       id: 'chair-6',
@@ -407,6 +421,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'chair-7',
@@ -433,6 +448,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'saleoff',
     },
     {
       id: 'chair-9',
@@ -446,6 +462,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'saleoff',
     },
     {
       id: 'chair-10',
@@ -459,6 +476,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'topseller',
     },
     {
       id: 'chair-11',
@@ -472,6 +490,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'chair-12',
@@ -486,6 +505,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'featured',
     },
     {
       id: 'chair-13',
@@ -499,6 +519,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'topseller',
     },
     {
       id: 'sofa-1',
@@ -512,6 +533,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'featured',
     },
     {
       id: 'sofa-2',
@@ -525,6 +547,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'sofa-3',
@@ -539,6 +562,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'topseller',
     },
     {
       id: 'sofa-4',
@@ -552,6 +576,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'sofa-5',
@@ -565,6 +590,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'sofa-6',
@@ -578,6 +604,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'sofa-7',
@@ -591,6 +618,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'sofa-8',
@@ -604,6 +632,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'sofa-9',
@@ -617,6 +646,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'table-1',
@@ -630,6 +660,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'table-2',
@@ -643,6 +674,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'saleoff',
     },
     {
       id: 'table-3',
@@ -657,6 +689,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'table-4',
@@ -670,6 +703,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'topseller',
     },
     {
       id: 'table-5',
@@ -684,6 +718,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'saleoff',
     },
     {
       id: 'table-6',
@@ -697,6 +732,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'saleoff',
     },
     {
       id: 'table-7',
@@ -711,6 +747,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'table-8',
@@ -725,6 +762,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'saleoff',
     },
     {
       id: 'table-9',
@@ -738,6 +776,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'saleoff',
     },
     {
       id: 'table-10',
@@ -751,6 +790,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'dining-1',
@@ -764,6 +804,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'featured',
     },
     {
       id: 'dining-2',
@@ -777,6 +818,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'saleoff',
     },
     {
       id: 'dining-3',
@@ -790,6 +832,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'featured',
     },
     {
       id: 'dining-4',
@@ -803,6 +846,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'toprated',
     },
     {
       id: 'dining-5',
@@ -816,6 +860,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'featured',
     },
     {
       id: 'dining-6',
@@ -829,6 +874,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'featured',
     },
     {
       id: 'dining-7',
@@ -842,6 +888,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'topseller',
     },
     {
       id: 'dining-8',
@@ -855,6 +902,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'featured',
     },
     {
       id: 'dining-9',
@@ -868,6 +916,7 @@ const initialState = {
       newFurniture: true,
       favorite: '',
       compare: '',
+      gallery: 'featured',
     },
   ],
   cart: {

@@ -24,12 +24,7 @@ const GalleryBox = ({
   favorite,
 }) => (
   <div className={styles.root}>
-    <div className={styles.row}>
-      <h6>FEATURED</h6>
-      <h6>TOP SELLER</h6>
-      <h6>SALE OFF</h6>
-      <h6>TOP RATED</h6>
-    </div>
+
 
     <div className={styles.photo}>
       <img src={image} alt={title} />
