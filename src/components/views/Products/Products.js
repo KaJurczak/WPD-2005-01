@@ -6,6 +6,7 @@ import FilterCategories from '../../features/FilterCategories/FilterCategories';
 import LeftColumn from '../../features/LeftColumn/LeftColumnContainer';
 import ColorProductFilter from '../../features/ColorProductFilter/ColorProductFilter';
 import FilterTag from '../../features/FilterTag/FilterTag';
+import SizeProductFilter from '../../features/SizeProductFilter/SizeProductFilter';
 
 const Products = () => {
   return (
@@ -38,6 +39,7 @@ const Products = () => {
             <FilterCategories />
             <ColorProductFilter />
             <FilterTag />
+            <SizeProductFilter />
             TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER
             TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN
           </div>
