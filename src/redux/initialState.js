@@ -501,6 +501,7 @@ const initialState = {
       price: 30,
       stars: 2,
       promo: 'sale',
+      featured: true,
       newFurniture: true,
       favorite: '',
       compare: '',
@@ -922,7 +923,12 @@ const initialState = {
     products: [],
   },
   favorites: ['aenean-ru-bristique-2', 'aenean-ru-bristique-24'],
-
+  ratings: [
+    {
+      id: 'aenean-ru-bristique-2',
+      rate: 3,
+    },
+  ],
   comparedProducts: {
     products: [],
   },

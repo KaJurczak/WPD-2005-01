@@ -93,5 +93,14 @@
         }
       }
     }
+
+    .controls {
+      text-align: center;
+      padding-top: 15px;
+
+      a {
+        color: $text-black;
+      }
+    }
   }
 }

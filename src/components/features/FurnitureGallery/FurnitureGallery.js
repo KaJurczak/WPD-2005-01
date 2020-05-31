@@ -114,10 +114,12 @@ class FurnitureGallery extends React.Component {
                   <div>
                     {activeProduct.id ? '' : this.handleProductChange(galleryProducts[0])}
                     {galleryProducts.filter(product => product.id === activeProduct.id).map(item => (
+
                       <div key={item.id}>
                         <GalleryBox {...item} />
                       </div>
                     ))}
+
                   </div>
 
                   <div className={styles.slider} >
@@ -131,9 +133,9 @@ class FurnitureGallery extends React.Component {
                     ))}
                     <Button className={styles.sliderArrow} onClick={(e) => this.handlePageChange(e,'next')} >
                       <FontAwesomeIcon icon={faAngleRight}/>
+
                     </Button>
                   </div>
-
                 </div>
               </div>
             </div>

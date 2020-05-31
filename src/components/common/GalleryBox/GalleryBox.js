@@ -38,7 +38,9 @@ const GalleryBox = ({
                 <span>${price}</span>
               </Button>
               <Button noHover variant='small'>
-                <span><s>${oldPrice}</s></span>
+                <span>
+                  <s>${oldPrice}</s>
+                </span>
               </Button>
             </div>
           ) : (
@@ -84,13 +86,9 @@ const GalleryBox = ({
             <FontAwesomeIcon icon={faShoppingBasket}>Add to cart</FontAwesomeIcon>
             <span className={styles.tooltiptext}>Add to cart</span>
           </Button>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
 );
 

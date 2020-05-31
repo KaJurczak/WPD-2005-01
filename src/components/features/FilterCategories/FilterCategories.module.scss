@@ -1,0 +1,66 @@
+@import "../../../styles/settings.scss";
+
+.categoriesFilter {
+  position: relative;
+
+  .categoriesTitle {
+    position: relative;
+    border-bottom: 2px solid;
+    flex: 1;
+    margin-bottom: 20px;
+
+    h5 {
+      text-transform: uppercase;
+      font-size: 20px;
+      line-height: 40px;
+      margin: 0;
+    }
+  }
+
+  ul {
+    padding-inline-start: 0;
+  }
+
+  .categoriesItem {
+    list-style-type: none;
+    padding: 5px 0;
+  }
+
+  .categoriesInner {
+    display: flex;
+    color: $text-black;
+    text-decoration: none;
+    align-items: center;
+
+    .icon {
+      align-items: flex-start;
+    }
+
+    .categoriesSubtitle {
+      flex: 1;
+      padding-inline-start: 10px;
+    }
+
+    .categoriesNumber {
+      background-color: $bg-black;
+      color: $text-white;
+      border-radius: 50%;
+      height: 25px;
+      width: 25px;
+      align-items: flex-end;
+      text-align: center;
+    }
+  }
+
+  .categoriesActive {
+    padding-inline-start: 10px;
+    a {
+      color: $text-orange;
+
+      .categoriesNumber {
+        background-color: $bg-orange;
+        color: $text-white;
+      }
+    }
+  }
+}
