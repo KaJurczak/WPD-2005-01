@@ -7,6 +7,7 @@ import LeftColumn from '../../features/LeftColumn/LeftColumnContainer';
 import ColorProductFilter from '../../features/ColorProductFilter/ColorProductFilter';
 import FilterTag from '../../features/FilterTag/FilterTag';
 import SizeProductFilter from '../../features/SizeProductFilter/SizeProductFilter';
+import PromoInFilter from '../../features/PromoInFilter/PromoInFilter';
 
 const Products = () => {
   return (
@@ -40,8 +41,7 @@ const Products = () => {
             <ColorProductFilter />
             <FilterTag />
             <SizeProductFilter />
-            TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN FILTER
-            TEST COLUMN FILTER TEST COLUMN FILTER TEST COLUMN
+            <PromoInFilter />
           </div>
         </div>
       </div>

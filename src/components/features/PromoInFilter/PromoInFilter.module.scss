@@ -1,0 +1,74 @@
+@import '../../../styles/settings.scss';
+
+.container {
+  margin-top: 40px;
+
+  .title {
+    color: $text-white;
+    background-color: $bg-black;
+    padding: 10px 0 10px 20px;
+    font-size: 18px;
+  }
+}
+
+.product {
+  width: 100%;
+  height: 170px;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns:  1fr 2fr;
+
+  grid-template-areas:
+    "photo title"
+    "photo priceProduct"
+    "photo stars"
+    "photo addToCard";
+
+  .photoProduct {
+    grid-area: photo;
+    margin: 0;
+    padding: 0;
+    width: 105px;
+
+    background-color: $bg-white-blue;
+    display: block;
+  }
+
+  .titleProduct {
+    grid-area: title;
+    margin: 10px 0 0 20px;
+    font-weight: 500;
+
+  }
+
+  .price {
+    grid-area: priceProduct;
+    margin: 0 0 5px 20px;
+    font-weight: bolder;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .stars{
+    grid-area: stars;
+    margin: 0 0 5px 20px;
+    a {
+      color: $text-black;
+    }
+  }
+  .button {
+    margin: 0 0 5px 20px;
+    padding: 10px 5px 0 5px;
+    color: $text-white;
+    background-color: $bg-black;
+    text-align: center;
+    cursor: pointer;
+  }
+  &:hover {
+    .titleProduct {
+      color: $text-orange;
+    }
+    .button {
+      background-color: $bg-orange;
+    }
+  }
+}
