@@ -20,10 +20,18 @@ $silver: #b6b6b6;
 $bronze: #363636;
 $lightBronze: #434343;
 
+$veryLightGrey: #CCC;
 $lightGrey: #c3c3c3;
 $grey: #a9a9a9;
 $darkGrey: #a0a0a0;
 
+$lightBlue:#4099ff;
+$mediumBlue:#0077b5;
+$blue:#3b5998;
+
+
+$red:#d62d20;
+$strongRed:#c92228;
 /* Define variables style colors - USE VARIABLE BASE COLORS
 example: "$element" + "color": "$color" ($text-white: $white) */
 
@@ -35,7 +43,10 @@ $text-medium-silver: $mediumSilver;
 $text-dark-white-blue: $darkWhiteBLue;
 $text-grey: $grey;
 $text-light-grey: $lightGrey;
-
+$text-red: $red;
+$text-strong-red: $strongRed;
+$text-light-blue: $lightBlue;
+$text-medium-blue: $mediumBlue;
 // border //
 $border-black: $black;
 $border-silver: $silver;
@@ -47,6 +58,7 @@ $border-light-black: $lightBlack;
 $border-grey: $grey;
 $border-light-grey: $lightGrey;
 $border-dark-grey: $darkGrey;
+$border-very-light-grey: $veryLightGrey;
 // background //
 $bg-white: $white;
 $bg-white-blue: $whiteBlue;
@@ -57,7 +69,7 @@ $bg-light-silver: $lightSilver;
 $bg-bronze: $bronze;
 $bg-light-bronze: $lightBronze;
 $bg-black: $black;
-
+$bg-blue: $blue;
 /*----------$transition-base----------*/
 // Adjust transition variables to modify global transition base */
 // Modify to suit by using specific property locally, under variable */

@@ -1,0 +1,319 @@
+@import '../../../styles/settings.scss';
+
+.component {
+  margin: auto;
+  margin-top: 200px ;
+  margin-bottom: 100px;
+  padding: 0 15px;
+  max-width: 1120px;
+  border: 1px solid $border-black;
+  display: grid;
+  grid-template-columns: 1.2fr 1.5fr ;
+  grid-template-rows: 90px 100px 40px 90px 110px 100px 150px ;
+  grid-template-areas:
+
+    "photo title"
+    "photo price"
+    "photo icons"
+    "photo quantity"
+    "photo overview"
+    "photo value"
+    "miniPhoto socials";
+
+    .mainPhoto {
+      grid-area: photo;
+      height: 510px;
+      background-color: $bg-white-blue;
+      margin: 20px ;
+
+      .fullSize {
+        width: 40px;
+        height: 44px;
+        margin: 458px 0 0 390px;
+        border: 1px solid $border-black;
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+
+        .iconExpand {
+          margin-top: 12px;
+        }
+      }
+    }
+
+    .titleProduct {
+      grid-area: title;
+      height: 80px;
+      margin-top: 20px;
+      font-weight: bolder;
+      font-size: 20px;
+      border-bottom: 1px solid $border-very-light-grey;
+
+      .chevronLeft, .chevronRight {
+        width: 30px;
+        height: 30px;
+        margin-left: 250px;
+        border: 1px solid $border-black;
+        padding: 7px ;
+        cursor: pointer;
+
+        &:hover {
+          color: $text-white;
+          background-color: $bg-orange;
+        }
+      }
+
+      .chevronRight {
+        margin-left: 5px;
+      }
+
+      .stars {
+        margin-top: 4px;
+        font-size: 12px;
+        color: $text-black;
+        display: inline-block;
+
+        a {
+          color: $text-black;
+        }
+
+        .reviews {
+          margin-left: 10px;
+          padding-right: 10px;
+          display: inline-block;
+          font-weight: normal;
+          border-right: solid 1px $border-very-light-grey;
+        }
+
+        .textAddReview {
+          display: inline-block;
+          font-weight: normal;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .oldPrices {
+      grid-area: price;
+      height: 60px;
+      display: inline-block;
+      margin: 30px 0 20px 0;
+      color: $text-grey;
+      font-weight: 300;
+      font-size: 22px;
+      border-bottom: 1px solid $border-very-light-grey;
+
+      .price {
+        display: inline-block;
+        color: $text-white;
+        margin-left: 10px;
+        padding: 0 10px;
+        background-color: $bg-black;
+        font-weight: 500;
+      }
+    }
+
+    .icons {
+      grid-area: icons;
+      height: 50px;
+
+      .blackIcon {
+        display: inline-block;
+        height: 42px;
+        color: $text-white;
+        background-color: $bg-black;
+        border: none;
+
+        &:hover{
+          background-color: $bg-orange;
+        }
+      }
+    }
+
+    .quantity {
+      grid-area: quantity ;
+      border-bottom: 1px solid $border-very-light-grey;
+      height: 80px;
+
+      .quantTitle {
+        display: inline-block;
+        padding-top: 20px;
+        font-weight: 700;
+      }
+
+      .resultQuant {
+        position: absolute;
+        width: 95px;
+        height: 38px;
+        display: inline-block;
+        margin-left: 12px;
+        margin-top: 14px;
+        padding-top: 6px;
+        text-align: center;
+        border: 1px solid $border-black;
+      }
+    }
+
+    .quickOverview {
+      grid-area: overview;
+      height: 90px;
+      display: inline-block;
+      border-bottom: 1px solid $border-very-light-grey;
+
+      .title {
+        font-weight: bolder;
+      }
+
+      .quickOverviewText{
+        margin-top: 3px;
+        line-height: 1.8;
+      }
+    }
+
+    .value {
+      grid-area: value;
+      margin-top: 10px;
+      display: inline-block;
+      font-weight: 400;
+      border-bottom: 1px solid $border-very-light-grey;
+
+      b{
+        margin-right: 10px;
+      }
+
+      .category b{
+        margin-right: 26px;
+      }
+    }
+
+    .litlePhoto {
+      grid-area: miniPhoto;
+      width: 444px;
+      height: 124px;
+      margin-top: 10px;
+      margin-left: 20px;
+      display: inline-block;
+
+      .photoInside {
+        display: inline-block;
+        width: 90px;
+        height: 100px;
+        background-color: $bg-white-blue;
+        margin: 10px 10px ;
+
+      }
+      .navLeft, .navRight {
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        padding: 6px;
+        margin: 45px 0;
+        border: 1px solid $border-black;
+
+        &:hover{
+          background-color: $bg-orange;
+          color: $text-white;
+          border: none;
+        }
+      }
+      .navRight {
+        margin-left: 412px;
+      }
+    }
+
+    .socialMedia {
+      grid-area: socials;
+      display: inline-block;
+      width: 600px;
+      height: 140px;
+
+      .iconSocial, .googlePlus, .tweet, .pinterest, .linkedIn{
+        height: 40px;
+        width: 110px;
+        margin: 46px 1px 0 3px;
+        border: none;
+        background-color: $bg-white;
+        display: inline-block;
+        color: $text-white;
+        background-color: $bg-blue;
+
+         .textIcon{
+         padding-left: 4px;
+         display: inline-block;
+        }
+      }
+
+      .googlePlus{
+        width: 112px;
+        color: $text-black;
+        background-color: $bg-white;
+        border: 1px solid $border-black;
+
+        .iconGoogle{
+          color: $text-red;
+        }
+      }
+
+      .tweet {
+        width: 90px;
+        color: $text-black;
+        background-color: $bg-white;
+        border: 1px solid $border-black;
+
+        .iconTweet{
+          color: $text-light-blue;
+        }
+      }
+
+      .pinterest {
+        width: 100px;
+        color: $text-black;
+        background-color: $bg-white;
+        border: 1px solid $border-black;
+
+        .iconPinterest{
+          color: $text-strong-red;
+        }
+      }
+
+      .linkedIn {
+        width: 110px;
+        color: $text-black;
+        background-color: $bg-white;
+        border: 1px solid $border-black;
+
+        .iconLinkedIn{
+          color: $text-medium-blue;
+        }
+      }
+    }
+  }
+
+.iconValue, .iconMinus, .iconPlus {
+  height: 42px;
+  width: 40px;
+  margin-left: 10px;
+  background-color: $bg-white;
+  border: 1px solid $border-black;
+
+  &:hover {
+    background-color: $bg-orange;
+    color: $text-white;
+    border: 1px solid $border-orange;
+  }
+}
+
+.iconMinus, .iconPlus {
+  position: relative;
+  height: 39px;
+  margin-left: 118px;
+
+  &:hover{
+    background-color: $bg-orange;
+    color: $text-white;
+    border: 1px solid $border-orange;
+  }
+}
+.iconPlus {
+  margin-left: 10px;
+}
